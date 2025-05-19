@@ -4,16 +4,22 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Navbar() {
-  const [active, setActive] = useState("ABOUT US");
+  // const [active, setActive] = useState("ABOUT US");
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated } = useAuth();
   const location = useLocation();
 
-  const navItems = ["ABOUT US", "WORK WITH US", "NEWS", "TOURNAMENTS"];
+  const navItems = [
+    { label: "ABOUT US", path: "/aboutus" },
+    { label: "WORK WITH US", path: "/workwithus" },
+    { label: "NEWS", path: "/news" },
+    { label: "TOURNAMENTS", path: "/tournaments" },
+  ];
+
   const hideAvatarOnPaths = ["/login", "/signup"];
 
   return (
@@ -21,35 +27,33 @@ export default function Navbar() {
       {/* Logo */}
 
       <div className="w-32 lg:max-w-[183px]">
-        <Link to="/">
+        <NavLink to="/">
           <img
             src="/assets/sca_logo.png"
             alt="Logo"
             className="cursor-pointer"
           />
-        </Link>
+        </NavLink>
       </div>
 
       {/* Desktop Nav and Search */}
 
       <div className="hidden lg:flex items-center gap-6 flex-wrap">
         <ul className="flex gap-7 text-sm">
-          {navItems.map((item) => {
-            const path = `/${item.toLowerCase().replace(/\s+/g, "")}`;
-            return (
-              <li key={item}>
-                <Link
-                  onClick={() => setActive(item)}
-                  to="/" //please replace with {path}
-                  className={`transition duration-300 ${
-                    active === item ? "text-primary" : "hover:text-primary"
-                  }`}
-                >
-                  {item}
-                </Link>
-              </li>
-            );
-          })}
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `transition duration-300 ${
+                    isActive ? "text-primary" : "hover:text-primary"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
         {/* Search Bar */}
@@ -98,25 +102,21 @@ export default function Navbar() {
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-black p-4 z-10 lg:hidden transition-all duration-300">
           <ul className="flex flex-col gap-4 text-sm">
-            {navItems.map((item) => {
-              const path = `/${item.toLowerCase().replace(/\s+/g, "")}`;
-              return (
-                <li key={item}>
-                  <Link
-                    onClick={() => {
-                      to = "/"; //please replace with {path}
-                      setActive(item);
-                      setIsOpen(false);
-                    }}
-                    className={`transition duration-300 ${
-                      active === item ? "text-primary" : "hover:text-primary"
-                    }`}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              );
-            })}
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  to={item.path}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `transition duration-300 ${
+                      isActive ? "text-primary" : "hover:text-primary"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
 
           {/* Search Bar (Mobile) */}

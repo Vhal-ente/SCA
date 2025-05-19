@@ -1,9 +1,10 @@
 import TournOverview from "@/components/Tournaments/TournOverview";
+import TournWatch from "@/components/Tournaments/TournWatch";
 
-export default function TournamentOverview() {
+export default function TournamentWatch() {
   return (
     <div className="py-8 px-6 md:px-12">
-      <TournOverview />
+      <TournWatch />
     </div>
   );
 }
