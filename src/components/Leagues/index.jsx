@@ -1,3 +1,6 @@
+import { ArrowCircleRight2 } from "iconsax-reactjs";
+import Button from "../Button";
+
 const leagues = [
   {
     name: "Path of Legends",
@@ -34,6 +37,15 @@ export default function Leagues() {
               <span className="text-sm text-gray-300">{item.subtitle}</span>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 flex items center justify-center">
+          <Button
+            text="See all"
+            size="small"
+            fontSize="text-sm"
+            iconLeft={<ArrowCircleRight2 variant="Bold" />}
+          />
         </div>
       </div>
     </section>

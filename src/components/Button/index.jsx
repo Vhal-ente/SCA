@@ -14,7 +14,7 @@ export default function Button({
   let sizeClasses = "";
 
   if (size === "small") {
-    sizeClasses = "px-3 py-2";
+    sizeClasses = "px-4 py-2";
   } else if (size === "big") {
     sizeClasses = "px-6 py-3";
   } else {
