@@ -1,7 +1,14 @@
 import MatchRoundCard from "../InfoCard/MatchRoundCard";
 import TournamentsNav from "../Navbar/TournamentsNav";
+import { useNavigate } from "react-router-dom";
 
 export default function TournMatches() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate("/tournamentspage/matches2");
+  };
+
   const dummyAvatar = "https://i.pravatar.cc/40?img=";
 
   const matchGroupData = [
@@ -76,7 +83,7 @@ export default function TournMatches() {
         {matchGroupData.map((group, groupIndex) => (
           <div key={groupIndex} className="mb-10">
             <h2 className="text-primary text-3xl mb-4">ROUND #{group.round}</h2>
-            <div>
+            <div onClick={handleGetStarted}>
               {group.matches.map((match, matchIndex) => (
                 <MatchRoundCard key={matchIndex} {...match} />
               ))}
