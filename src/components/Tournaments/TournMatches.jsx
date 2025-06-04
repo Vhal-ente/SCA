@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function TournMatches() {
   const navigate = useNavigate();
 
-  const handleGetStarted = () => {
+  const goToTournamentMatches2 = () => {
     navigate("/tournamentspage/matches2");
   };
 
@@ -83,7 +83,7 @@ export default function TournMatches() {
         {matchGroupData.map((group, groupIndex) => (
           <div key={groupIndex} className="mb-10">
             <h2 className="text-primary text-3xl mb-4">ROUND #{group.round}</h2>
-            <div onClick={handleGetStarted}>
+            <div onClick={goToTournamentMatches2}>
               {group.matches.map((match, matchIndex) => (
                 <MatchRoundCard key={matchIndex} {...match} />
               ))}

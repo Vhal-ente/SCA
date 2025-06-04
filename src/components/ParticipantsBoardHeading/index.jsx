@@ -1,7 +1,7 @@
 export default function ParticipantBoardHeading({ showWins }) {
   return (
     <div
-      className={`grid [grid-template-columns:2fr_1fr_1fr] items-center text-primary text-3xl mb-4 ${
+      className={`grid [grid-template-columns:2fr_1fr_1fr] items-center text-primary text-xl md:text-3xl mb-4 ${
         showWins
           ? "[grid-template-columns:2fr_1fr_1fr_1fr]"
           : "[grid-template-columns:2fr_1fr_1fr]"
