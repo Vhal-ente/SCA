@@ -16,6 +16,8 @@ import Matches from "./pages/TournamentsPage/Matches";
 import Matches2 from "./pages/TournamentsPage/Matches2";
 import Rules from "./pages/TournamentsPage/Rules";
 import Standings from "./pages/TournamentsPage/Standings";
+import LeaguePageWrapper from "./components/LeaguePageWrapper";
+import LeaguesPageOverview from "./pages/LeaguesPage/LeaguesPageOverview";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -41,6 +43,18 @@ export default function App() {
             <Route path="tournamentspage/matches2" element={<Matches2 />} />
             <Route path="tournamentspage/rules" element={<Rules />} />
             <Route path="tournamentspage/standings" element={<Standings />} />
+          </Route>
+
+          <Route element={<LeaguePageWrapper />}>
+            <Route
+              path="leaguespage/leaguespageoverview"
+              element={<LeaguesPageOverview />}
+            />
+            {/* <Route path="leaguespage/watch" element={<Watch />} />
+            <Route path="leaguespage/matches" element={<Matches />} />
+            <Route path="leaguespage/matches2" element={<Matches2 />} />
+            <Route path="leaguespage/rules" element={<Rules />} />
+            <Route path="leaguespage/standings" element={<Standings />} /> */}
           </Route>
 
           {/* Protected/authenticated routes */}

@@ -3,6 +3,7 @@ export default function InfoCardComponent({
   icon,
   children,
   dashed = false,
+  headerPosition = "top",
 }) {
   return (
     <div
@@ -10,11 +11,19 @@ export default function InfoCardComponent({
         dashed ? "border-dashed" : "border-solid"
       } border-white rounded-lg p-4`}
     >
-      <div className="flex items-center justify-between mb-2">
-        <h3 className="text-2xl font-normal">{title}</h3>
-        {icon && <span>{icon}</span>}
-      </div>
+      {headerPosition === "top" && (
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-2xl font-normal">{title}</h3>
+          {icon && <span>{icon}</span>}
+        </div>
+      )}
       <div>{children}</div>
+      {headerPosition === "bottom" && (
+        <div className="flex items-center justify-between mt-2">
+          <h3 className="text-2xl font-normal">{title}</h3>
+          {icon && <span>{icon}</span>}
+        </div>
+      )}
     </div>
   );
 }
