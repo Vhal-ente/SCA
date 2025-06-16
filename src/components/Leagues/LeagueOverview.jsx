@@ -1,7 +1,7 @@
 import Button from "../Button";
 import LeaguesNav from "../Navbar/LeaguesNav";
 import HeaderInfoCards from "../InfoCard/HeaderInfoCards";
-import AsideInfoCards from "../InfoCard/AsideInfoCards";
+import LeagueAsideInfoCards from "../InfoCard/LeagueAsideInfoCards";
 import Details from "../Details/index.jsx";
 import Admins from "../Admins";
 import DetailsParagraph from "../Details/DetailsParagraph";
@@ -118,7 +118,7 @@ export default function LeaguesOverview() {
 
       <div className="flex flex-col md:flex-row gap-16 max-w-7xl mx-auto py-8">
         <aside className="w-full md:w-1/4 pt-8">
-          <AsideInfoCards />
+          <LeagueAsideInfoCards />
         </aside>
         <div className="md:w-3/4 flex flex-col gap-2 ">
           <Details {...detailsProps} />

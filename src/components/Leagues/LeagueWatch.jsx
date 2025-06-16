@@ -2,7 +2,7 @@ import DashedLeagueBorderCard from "../InfoCard/DashedLeagueBorderCard";
 import PictureClipCard from "../InfoCard/PictureClipCard";
 import LeaguesNav from "../Navbar/LeaguesNav";
 
-export default function LeaguesWatch() {
+export default function LeagueWatch() {
   const clips = [
     {
       id: 1,
