@@ -1,5 +1,6 @@
 import { ArrowCircleRight2 } from "iconsax-reactjs";
 import Button from "../Button";
+import TournamentCard from "../InfoCard/TournamnetCard";
 
 const tournaments = [
   {
@@ -28,12 +29,18 @@ const tournaments = [
 export default function Tournaments() {
   return (
     <section className="bg-background py-20 px-6 md:px-16">
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl text-white text-center mb-12">
           TOURNAMENTS
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
+          {tournaments.map((tournament, index) => (
+            <TournamentCard key={index} tournament={tournament} />
+          ))}
+        </div>
+
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
           {tournaments.map((tournament, index) => (
             <div
               key={index}
@@ -69,7 +76,7 @@ export default function Tournaments() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         <div className="mt-12 flex items center justify-center">
           <Button

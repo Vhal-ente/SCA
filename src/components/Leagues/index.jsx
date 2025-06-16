@@ -1,6 +1,7 @@
 import { ArrowCircleRight2 } from "iconsax-reactjs";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
+import LeagueCard from "../InfoCard/LeagueCard";
 
 const leagues = [
   {
@@ -23,26 +24,24 @@ const leagues = [
 export default function Leagues() {
   const navigate = useNavigate();
 
-  const handleGetStarted = () => {
+  const handleLeagueClick = () => {
+    navigate("/leagues/leaguelist");
+  };
+
+  const handleSeeAll = () => {
     navigate("/leaguespage/leaguepageoverview");
   };
 
   return (
     <section className="bg-background text-white py-10 px-6 md:px-16">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl mb-12">LEAGUES</h2>
+        <h2 onClick={handleLeagueClick} className="text-3xl md:text-4xl mb-12">
+          LEAGUES
+        </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
-          {leagues.map((item, index) => (
-            <div key={index} className="flex flex-col items-center space-y-4">
-              <img
-                src={item.image}
-                alt={item.name}
-                className="h-24 w-52 object-contain"
-              />
-              {/* <p className="font-semibold">{item.name}</p> */}
-              <span className="text-sm text-gray-300">{item.subtitle}</span>
-            </div>
+          {leagues.map((league, index) => (
+            <LeagueCard key={index} league={league} />
           ))}
         </div>
 
@@ -52,7 +51,7 @@ export default function Leagues() {
             size="small"
             fontSize="text-sm"
             iconLeft={<ArrowCircleRight2 variant="Bold" />}
-            onClick={handleGetStarted}
+            onClick={handleSeeAll}
           />
         </div>
       </div>
