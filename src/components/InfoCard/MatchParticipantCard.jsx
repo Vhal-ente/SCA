@@ -1,4 +1,4 @@
-export default function ParticipantBoardCard({
+export default function MatchParticipantCard({
   avatar,
   name,
   username,
@@ -15,11 +15,15 @@ export default function ParticipantBoardCard({
           : "[grid-template-columns:2fr_1fr_1fr]"
       }`}
     >
-      <div className="flex items-center gap-3">
-        <img src={avatar} alt={name} className="w-20 h-20 rounded-full" />
+      <div className="flex items-center gap-2 md:gap-3">
+        <img
+          src={avatar}
+          alt={name}
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full"
+        />
         <div>
-          <p className="text-2xl">{name}</p>
-          <p className="text-base text-primary">{username}</p>
+          <p className="text-base md:text-2xl">{name}</p>
+          <p className="text-sm md:text-base text-primary">{username}</p>
         </div>
       </div>
       <p className="text-center">{position}</p>

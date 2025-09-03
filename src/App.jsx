@@ -15,6 +15,7 @@ import Watch from "./pages/TournamentsPage/Watch";
 import Matches from "./pages/TournamentsPage/Matches";
 import Matches2 from "./pages/TournamentsPage/Matches2";
 import Rules from "./pages/TournamentsPage/Rules";
+import Standings from "./pages/TournamentsPage/Standings";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -39,7 +40,7 @@ export default function App() {
             <Route path="tournamentspage/matches" element={<Matches />} />
             <Route path="tournamentspage/matches2" element={<Matches2 />} />
             <Route path="tournamentspage/rules" element={<Rules />} />
-            {/*<Route path="tournamentspage/standings" element={<Standings />} /> */}
+            <Route path="tournamentspage/standings" element={<Standings />} />
           </Route>
 
           {/* Protected/authenticated routes */}
