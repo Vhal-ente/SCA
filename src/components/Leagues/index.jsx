@@ -1,5 +1,6 @@
 import { ArrowCircleRight2 } from "iconsax-reactjs";
 import Button from "../Button";
+import { useNavigate } from "react-router-dom";
 
 const leagues = [
   {
@@ -20,6 +21,12 @@ const leagues = [
 ];
 
 export default function Leagues() {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate("/leaguespage/leaguespageoverview");
+  };
+
   return (
     <section className="bg-background text-white py-10 px-6 md:px-16">
       <div className="max-w-7xl mx-auto text-center">
@@ -45,6 +52,7 @@ export default function Leagues() {
             size="small"
             fontSize="text-sm"
             iconLeft={<ArrowCircleRight2 variant="Bold" />}
+            onClick={handleGetStarted}
           />
         </div>
       </div>
