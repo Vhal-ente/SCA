@@ -1,4 +1,4 @@
-import { Crown, Game, Shapes, Triangle } from "iconsax-reactjs";
+import { Crown, Game, Shapes, Triangle, Diamonds } from "iconsax-reactjs";
 import InfoCardComponent from "./InfoCardComponent";
 
 const headerInfoCards = [
@@ -14,13 +14,7 @@ const headerInfoCards = [
   },
   {
     title: "Mode",
-    icon: (
-      <img
-        src="/assets/icons/shapes_1.svg"
-        alt="Type Icon"
-        className="w-6 h-6"
-      />
-    ),
+    icon: <Diamonds size="24" color="#36f6c6" />,
     content: "Solo",
   },
   {

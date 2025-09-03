@@ -8,8 +8,15 @@ export default function Hero() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
+  // Check if the user is logged in
+  const isLoggedIn = !!user;
+  // If the user is logged in, redirect to the dashboard
+  if (isLoggedIn) {
+    navigate("/");
+  }
+
   const handleGetStarted = () => {
-    navigate("/tournamentspage/overview");
+    navigate("/signup");
   };
 
   return (
