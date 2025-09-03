@@ -1,4 +1,3 @@
-import TournOverview from "@/components/Tournaments/TournOverview";
 import TournWatch from "@/components/Tournaments/TournWatch";
 
 export default function TournamentWatch() {

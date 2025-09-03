@@ -11,7 +11,7 @@ export default function TournamentsNav() {
 
   return (
     <nav className="mb-8 pb-2">
-      <ul className="flex items-center space-x-8 text-white text-sm md:text-base">
+      <ul className="flex flex-wrap items-center gap-x-8 text-white text-sm md:text-base">
         {navItems.map((item, index) => (
           <li key={index}>
             <NavLink

@@ -1,4 +1,4 @@
-import { Crown, Game, Shapes, Triangle } from "iconsax-reactjs";
+import { Crown1, Game, Shapes, Triangle } from "iconsax-reactjs";
 import InfoCardComponent from "./InfoCardComponent";
 
 const headerInfoCards = [
@@ -25,7 +25,7 @@ const headerInfoCards = [
   },
   {
     title: "Winner",
-    icon: <Crown size="24" color="#36f6c6" />,
+    icon: <Crown1 size="24" color="#36f6c6" />,
     content: "BR Positions",
   },
 ];
