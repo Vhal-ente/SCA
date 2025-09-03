@@ -24,7 +24,7 @@ export default function Leagues() {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate("/leaguespage/leaguespageoverview");
+    navigate("/leaguespage/leaguepageoverview");
   };
 
   return (
