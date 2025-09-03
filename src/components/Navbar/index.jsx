@@ -4,7 +4,7 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Navbar() {
@@ -12,15 +12,20 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navItems = [
     { label: "ABOUT US", path: "/aboutus" },
     { label: "WORK WITH US", path: "/workwithus" },
     { label: "NEWS", path: "/news" },
-    { label: "TOURNAMENTS", path: "/tournaments" },
+    { label: "TOURNAMENTS", path: "/tournaments/tournamentlist" },
   ];
 
   const hideAvatarOnPaths = ["/login", "/signup"];
+
+  const handleUserClick = () => {
+    navigate("/userpage/userpageoverview");
+  };
 
   return (
     <nav className="text-white flex flex-row-reverse lg:flex-row items-center justify-between ">
@@ -68,7 +73,7 @@ export default function Navbar() {
 
         {/* Avatar / Hexagon */}
         {!hideAvatarOnPaths.includes(location.pathname) && (
-          <div className="w-14 h-14">
+          <div className="w-14 h-14 cursor-pointer" onClick={handleUserClick}>
             {isAuthenticated ? (
               <img
                 src="/assets/admins/mightyness.svg" //{user.avatarUrl}
@@ -131,7 +136,7 @@ export default function Navbar() {
 
           {/* Avatar / Hexagon */}
           {!hideAvatarOnPaths.includes(location.pathname) && (
-            <div className="w-14 h-14">
+            <div className="w-14 h-14 cursor-pointer" onClick={handleUserClick}>
               {isAuthenticated ? (
                 <img
                   src="/assets/admins/mightyness.svg" //{user.avatarUrl}
