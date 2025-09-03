@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 export default function TournamentsNav() {
   const navItems = [
     { name: "Overview", path: "/leaguespage/leaguespageoverview" },
-    { name: "Watch", path: "/leaguespage/watch" },
-    { name: "Matches", path: "/leaguespage/matches" },
-    { name: "Rules", path: "/leaguespage/rules" },
-    { name: "Standings", path: "/leaguespage/standings" },
+    { name: "Watch", path: "/leaguespage/leaguespagewatch" },
+    { name: "Matches", path: "/leaguespage/leaguespagematches" },
+    { name: "Rules", path: "/leaguespage/leaguespagerules" },
+    { name: "Standings", path: "/leaguespage/leaguespagestandings" },
   ];
 
   return (
