@@ -13,4 +13,4 @@ If you are developing a production application, we recommend using TypeScript an
 
 
 ### Live Preview
-[View Demo](https://<your-username>.github.io/<your-repo-name>)
+[View Demo](https://vhal-ente.github.io/SCA/)
