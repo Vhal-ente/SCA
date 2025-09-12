@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <section className="w-full bg-[#292929] text-white py-15 px-6 md:px-16">
+    <section id="aboutus" className="w-full bg-[#292929] text-white py-15 px-6 md:px-16">
       <div className="max-w-5xl mx-auto flex items-center gap-12">
         {/* Text Content */}
         <div className="flex-1 text-center">

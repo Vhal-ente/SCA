@@ -23,7 +23,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <section className="w-full bg-background text-white py-10 px-6 md:px-16">
+    <section id="workwithus" className="w-full bg-background text-white py-10 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl mb-12 text-center">How it works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">

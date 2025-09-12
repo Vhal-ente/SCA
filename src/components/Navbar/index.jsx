@@ -4,52 +4,61 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/20/solid";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Navbar() {
-  const [active, setActive] = useState("ABOUT US");
+  // const [active, setActive] = useState("ABOUT US");
   const [isOpen, setIsOpen] = useState(false);
   const { user, isAuthenticated } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
-  const navItems = ["ABOUT US", "WORK WITH US", "NEWS", "TOURNAMENTS"];
+  const navItems = [
+    { label: "ABOUT US", href: "/aboutus" },
+    { label: "WORK WITH US", href: "/workwithus" },
+    { label: "NEWS", href: "/news" },
+    { label: "TOURNAMENTS", href: "/tournaments/tournamentlist" },
+  ];
+
   const hideAvatarOnPaths = ["/login", "/signup"];
+
+  const handleUserClick = () => {
+    navigate("/userpage/userpageoverview");
+  };
 
   return (
     <nav className="text-white flex flex-row-reverse lg:flex-row items-center justify-between ">
       {/* Logo */}
 
       <div className="w-32 lg:max-w-[183px]">
-        <Link to="/">
+        <NavLink to="/">
           <img
             src="/assets/sca_logo.png"
             alt="Logo"
             className="cursor-pointer"
           />
-        </Link>
+        </NavLink>
       </div>
 
       {/* Desktop Nav and Search */}
 
       <div className="hidden lg:flex items-center gap-6 flex-wrap">
         <ul className="flex gap-7 text-sm">
-          {navItems.map((item) => {
-            const path = `/${item.toLowerCase().replace(/\s+/g, "")}`;
-            return (
-              <li key={item}>
-                <Link
-                  onClick={() => setActive(item)}
-                  to="/" //please replace with {path}
-                  className={`transition duration-300 ${
-                    active === item ? "text-primary" : "hover:text-primary"
-                  }`}
-                >
-                  {item}
-                </Link>
-              </li>
-            );
-          })}
+          {navItems.map((item) => (
+            <li key={item.label}>
+              <NavLink
+                to={item.href}
+                className={({ isActive }) =>
+                  `transition duration-300 ${
+                    isActive ? "text-primary" : "hover:text-primary"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
         {/* Search Bar */}
@@ -64,7 +73,7 @@ export default function Navbar() {
 
         {/* Avatar / Hexagon */}
         {!hideAvatarOnPaths.includes(location.pathname) && (
-          <div className="w-14 h-14">
+          <div className="w-14 h-14 cursor-pointer" onClick={handleUserClick}>
             {isAuthenticated ? (
               <img
                 src="/assets/admins/mightyness.svg" //{user.avatarUrl}
@@ -98,25 +107,21 @@ export default function Navbar() {
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-black p-4 z-10 lg:hidden transition-all duration-300">
           <ul className="flex flex-col gap-4 text-sm">
-            {navItems.map((item) => {
-              const path = `/${item.toLowerCase().replace(/\s+/g, "")}`;
-              return (
-                <li key={item}>
-                  <Link
-                    onClick={() => {
-                      to = "/"; //please replace with {path}
-                      setActive(item);
-                      setIsOpen(false);
-                    }}
-                    className={`transition duration-300 ${
-                      active === item ? "text-primary" : "hover:text-primary"
-                    }`}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              );
-            })}
+            {navItems.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  to={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={({ isActive }) =>
+                    `transition duration-300 ${
+                      isActive ? "text-primary" : "hover:text-primary"
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
           </ul>
 
           {/* Search Bar (Mobile) */}
@@ -131,7 +136,7 @@ export default function Navbar() {
 
           {/* Avatar / Hexagon */}
           {!hideAvatarOnPaths.includes(location.pathname) && (
-            <div className="w-14 h-14">
+            <div className="w-14 h-14 cursor-pointer" onClick={handleUserClick}>
               {isAuthenticated ? (
                 <img
                   src="/assets/admins/mightyness.svg" //{user.avatarUrl}
