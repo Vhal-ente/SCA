@@ -31,6 +31,7 @@ import UserPageOverview from "./pages/UserPage/UserPageOverview";
 export default function App() {
   return (
     <AuthProvider>
+       <BrowserRouter basename="/SCA">
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -100,6 +101,7 @@ export default function App() {
           </Route> */}
         </Routes>
       </Router>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
