@@ -25,7 +25,7 @@ export default function Footer() {
         <div className="max-w-36">
           <Link to="/">
             <img
-              src="/assets/sca_logo.png"
+              src="/SCA/assets/sca_logo.png"
               alt="Logo"
               className="mx-auto md:mx-0 cursor-pointer"
             />

@@ -24,7 +24,7 @@ export default function UserOverview() {
         <div className="flex flex-col items-center gap-2">
           <div>
             <img
-              src="/assets/admins/mightyness.svg"
+              src="/SCA/assets/admins/mightyness.svg"
               alt="Avatar"
               className="w-54 h-54"
             />

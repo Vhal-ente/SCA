@@ -9,7 +9,7 @@ export default function TournMatches() {
     navigate("/tournamentspage/matches2");
   };
 
-  const dummyAvatar = "https://i.pravatar.cc/40?img=";
+  // const dummyAvatar = "https://i.pravatar.cc/40?img=";
 
   const matchGroupData = [
     {
@@ -19,10 +19,10 @@ export default function TournMatches() {
           time: "21:15 WAT",
           date: "09 JAN",
           avatars: [
-            "/assets/admins/mightyness.svg",
-            "/assets/admins/von.svg",
-            "/assets/admins/manja.svg",
-            "/assets/admins/misha.svg",
+            "/SCA/assets/admins/mightyness.svg",
+            "/SCA/assets/admins/von.svg",
+            "/SCA/assets/admins/manja.svg",
+            "/SCA/assets/admins/misha.svg",
           ],
           extraPlayers: 67,
           status: "Finished",
@@ -36,10 +36,10 @@ export default function TournMatches() {
           time: "21:15 WAT",
           date: "10 JAN",
           avatars: [
-            "/assets/admins/mightyness.svg",
-            "/assets/admins/von.svg",
-            "/assets/admins/manja.svg",
-            "/assets/admins/misha.svg",
+            "/SCA/assets/admins/mightyness.svg",
+            "/SCA/assets/admins/von.svg",
+            "/SCA/assets/admins/manja.svg",
+            "/SCA/assets/admins/misha.svg",
           ],
           extraPlayers: 67,
           status: "Finished",
@@ -53,10 +53,10 @@ export default function TournMatches() {
           time: "21:15 WAT",
           date: "10 JAN",
           avatars: [
-            "/assets/admins/mightyness.svg",
-            "/assets/admins/von.svg",
-            "/assets/admins/manja.svg",
-            "/assets/admins/misha.svg",
+            "/SCA/assets/admins/mightyness.svg",
+            "/SCA/assets/admins/von.svg",
+            "/SCA/assets/admins/manja.svg",
+            "/SCA/assets/admins/misha.svg",
           ],
           extraPlayers: 67,
           status: "Finished",

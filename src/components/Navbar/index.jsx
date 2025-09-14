@@ -34,7 +34,7 @@ export default function Navbar() {
       <div className="w-32 lg:max-w-[183px]">
         <NavLink to="/">
           <img
-            src="/assets/sca_logo.png"
+            src="/SCA/assets/sca_logo.png"
             alt="Logo"
             className="cursor-pointer"
           />
@@ -76,14 +76,14 @@ export default function Navbar() {
           <div className="w-14 h-14 cursor-pointer" onClick={handleUserClick}>
             {isAuthenticated ? (
               <img
-                src="/assets/admins/mightyness.svg" //{user.avatarUrl}
+                src="/SCA/assets/admins/mightyness.svg" //{user.avatarUrl}
                 alt="User Avatar"
                 className="w-full h-full object-cover"
               />
             ) : (
               <div>
                 <img
-                  src="/assets/admins/default_hexagon.svg"
+                  src="/SCA/assets/admins/default_hexagon.svg"
                   alt="default_hexagon"
                 />
               </div>
@@ -139,14 +139,14 @@ export default function Navbar() {
             <div className="w-14 h-14 cursor-pointer" onClick={handleUserClick}>
               {isAuthenticated ? (
                 <img
-                  src="/assets/admins/mightyness.svg" //{user.avatarUrl}
+                  src="/SCA/assets/admins/mightyness.svg" //{user.avatarUrl}
                   alt="User Avatar"
                   className="w-full h-full object-cover"
                 />
               ) : (
                 <div>
                   <img
-                    src="/assets/admins/default_hexagon.svg"
+                    src="/SCA/assets/admins/default_hexagon.svg"
                     alt="default_hexagon"
                   />
                 </div>

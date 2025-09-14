@@ -76,10 +76,10 @@ export default function TournOverview() {
   const adminsProps = {
     sectionTitle: "ADMINS",
     admins: [
-      { name: "Mightyness", image: "/assets/admins/mightyness.svg" },
-      { name: "Von", image: "/assets/admins/von.svg" },
-      { name: "Manja", image: "/assets/admins/manja.svg" },
-      { name: "Misha", image: "/assets/admins/misha.svg" },
+      { name: "Mightyness", image: "/SCA/assets/admins/mightyness.svg" },
+      { name: "Von", image: "/SCA/assets/admins/von.svg" },
+      { name: "Manja", image: "/SCA/assets/admins/manja.svg" },
+      { name: "Misha", image: "/SCA/assets/admins/misha.svg" },
     ],
   };
   return (
@@ -103,7 +103,7 @@ export default function TournOverview() {
               text="Join"
               iconLeft={
                 <img
-                  src="/assets/icons/shield_check.svg"
+                  src="/SCA/assets/icons/shield_check.svg"
                   alt="icon"
                   className="w-6 h-6"
                 />

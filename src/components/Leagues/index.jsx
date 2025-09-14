@@ -6,17 +6,17 @@ import LeagueCard from "../InfoCard/LeagueCard";
 const leagues = [
   {
     name: "Path of Legends",
-    image: "/assets/path_of_legends.png",
+    image: "/SCA/assets/path_of_legends.png",
     subtitle: "Path of Legends Gaming League",
   },
   {
     name: "Academius Games",
-    image: "/assets/academius_2.png",
+    image: "/SCA/assets/academius_2.png",
     subtitle: "Academius League",
   },
   {
     name: "Clan Senso",
-    image: "/assets/clan_war_2.png",
+    image: "/SCA/assets/clan_war_2.png",
     subtitle: "Clan Senso League",
   },
 ];

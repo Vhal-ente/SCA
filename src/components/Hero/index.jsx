@@ -38,7 +38,7 @@ export default function Hero() {
             <div className="flex-grow flex flex-col items-center justify-center text-center gap-5 mt-14 xl:mt-36">
               <div className="max-w-sm p-2">
                 <img
-                  src="\assets\sca_logo.png"
+                  src="/SCA/assets/sca_logo.png"
                   alt="sca logo"
                   className="w-full"
                 />

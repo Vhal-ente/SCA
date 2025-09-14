@@ -10,18 +10,18 @@ const items = [
 
 const slides = [
   {
-    image: "/assets/ancient_greek.png",
-    title: "/assets/path_of_legends.png",
+    image: "/SCA/assets/ancient_greek.png",
+    title: "/SCA/assets/path_of_legends.png",
     tag: "Blog",
   },
   {
-    image: "/assets/ancient_greek.png",
-    title: "/assets/academius_2.png",
+    image: "/SCA/assets/ancient_greek.png",
+    title: "/SCA/assets/academius_2.png",
     tag: "News",
   },
   {
-    image: "/assets/ancient_greek.png",
-    title: "/assets/clan_war_2.png",
+    image: "/SCA/assets/ancient_greek.png",
+    title: "/SCA/assets/clan_war_2.png",
     tag: "Update",
   },
 ];

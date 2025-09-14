@@ -1,6 +1,7 @@
 import React from "react";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
+  Router,
   Routes,
   Route,
   Navigate,
@@ -30,9 +31,8 @@ import UserPageOverview from "./pages/UserPage/UserPageOverview";
 
 export default function App() {
   return (
+       <BrowserRouter basename="/SCA/">
     <AuthProvider>
-       <BrowserRouter basename="/SCA">
-      <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
 
@@ -100,9 +100,8 @@ export default function App() {
             />
           </Route> */}
         </Routes>
-      </Router>
-      </BrowserRouter>
     </AuthProvider>
+      </BrowserRouter>
   );
 }
 

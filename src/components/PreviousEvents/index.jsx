@@ -3,15 +3,15 @@ const events = [
     title: "Path of Legends 1",
     description:
       "Held every month, Path of Legends will contestants battle it out for 12 months, each month having its own victor. Who dares to walk the path of legends?",
-    image: "/assets/ancient_greek.png",
-    logoTitle: "/assets/path_of_legends.png",
+    image: "/SCA/assets/ancient_greek.png",
+    logoTitle: "/SCA/assets/path_of_legends.png",
   },
   {
     title: "Academius Games 1",
     description:
       "Path of blood season 1 Path of blood season 1 Path of blood season 1 Path of blood season 1 Path of blood season 1 Path of blood season 1",
-    image: "/assets/ancient_greek.png",
-    logoTitle: "/assets/academius_2.png",
+    image: "/SCA/assets/ancient_greek.png",
+    logoTitle: "/SCA/assets/academius_2.png",
   },
 ];
 

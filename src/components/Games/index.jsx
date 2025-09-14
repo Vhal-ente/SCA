@@ -1,21 +1,21 @@
 const games = [
-  { name: "Call of Duty Mobile", image: "/assets/games/call_of_duty.png" },
+  { name: "Call of Duty Mobile", image: "/SCA/assets/games/call_of_duty.png" },
   {
     name: "Call of Duty Warzone Mobile",
-    image: "/assets/games/warzone_mobile.png",
+    image: "/SCA/assets/games/warzone_mobile.png",
   },
   {
     name: "Mobile Legends Bang Bang",
-    image: "/assets/games/mobile_legend_bang_bang.png",
+    image: "/SCA/assets/games/mobile_legend_bang_bang.png",
   },
-  { name: "Farlight 84", image: "/assets/games/farlight84.png" },
-  { name: "Clash of Clans", image: "/assets/games/clash_of_clans.png" },
-  { name: "Shadow fight Arena", image: "/assets/games/shadow_fight_arena.png" },
+  { name: "Farlight 84", image: "/SCA/assets/games/farlight84.png" },
+  { name: "Clash of Clans", image: "/SCA/assets/games/clash_of_clans.png" },
+  { name: "Shadow fight Arena", image: "/SCA/assets/games/shadow_fight_arena.png" },
   {
     name: "Project Bloodstrike",
-    image: "/assets/games/project_blood_strike.png",
+    image: "/SCA/assets/games/project_blood_strike.png",
   },
-  { name: "PUBG New state", image: "/assets/games/PUBG_new_state.png" },
+  { name: "PUBG New state", image: "/SCA/assets/games/PUBG_new_state.png" },
 ];
 
 export default function Games() {

@@ -21,9 +21,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Not played",
         },
         {
@@ -31,9 +31,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Finished",
         },
         {
@@ -41,9 +41,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Postponed",
         },
         {
@@ -51,7 +51,7 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
           teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
           status: "Tie breaker",
@@ -66,9 +66,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Not played",
         },
         {
@@ -76,9 +76,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Finished",
         },
         {
@@ -86,9 +86,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Postponed",
         },
         {
@@ -96,9 +96,9 @@ export default function LeagueMatches() {
           date: "09 JAN",
           teamA: {
             name: "F4 Sides",
-            logo: "/assets/league_logo/teamwhite.svg",
+            logo: "/SCA/assets/league_logo/teamwhite.svg",
           },
-          teamB: { name: "Red Team", logo: "/assets/league_logo/teamred.svg" },
+          teamB: { name: "Red Team", logo: "/SCA/assets/league_logo/teamred.svg" },
           status: "Tie breaker",
         },
       ],

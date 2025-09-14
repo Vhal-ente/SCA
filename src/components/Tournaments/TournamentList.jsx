@@ -1,48 +1,49 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+import Button from "../Button";
 import TournamentCard from "../InfoCard/TournamnetCard";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 const tournaments = [
   {
     name: "PUBG tournament by Red Bull",
-    image: "/assets/tournament_images/battlegrounds.png",
+    image: "/SCA/assets/tournament_images/battlegrounds.png",
     date: "Jun 26 - Jun 27, 2020",
     participants: 128,
     subtitle: "Clan Senso",
   },
   {
     name: "Apex Legends tournament by Xbox",
-    image: "/assets/tournament_images/apex.png",
+    image: "/SCA/assets/tournament_images/apex.png",
     date: "Jun 27 - Jun 29, 2020",
     participants: 64,
     subtitle: "Clan Senso",
   },
   {
     name: "Rocket League Finals",
-    image: "/assets/tournament_images/rocket.png",
+    image: "/SCA/assets/tournament_images/rocket.png",
     date: "Jul 01 - Jul 02, 2020",
     participants: 1024,
     subtitle: "Clan Senso",
   },
   {
     name: "Call of duty:  Warzone by HyperX",
-    image: "/assets/warzone_image.png",
+    image: "/SCA/assets/warzone_image.png",
     date: "Jul 01 - Jul 03, 2025",
     participants: 256,
     subtitle: "Path of Legends Gaming Event",
   },
   {
     name: "PUBG Global Championship",
-    image: "/assets/PUBG_Global_Championship.png",
+    image: "/SCA/assets/PUBG_Global_Championship.png",
     date: "Jun 24 - Jun 26, 2025",
     participants: 1024,
     subtitle: "Academius Games",
   },
   {
     name: "PUBG Global Championship",
-    image: "/assets/PUBG_Global_Championship2.png",
+    image: "/SCA/assets/PUBG_Global_Championship2.png",
     date: "Jun 24 - Jun 26, 2025",
     participants: 1024,
     subtitle: "Clan Senso",
@@ -80,9 +81,48 @@ export default function TournamentList() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
           {tournaments.map((tournament, index) => (
             <TournamentCard key={index} tournament={tournament} />
+            
+          ))}
+        </div> */}
+
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
+          {tournaments.map((tournament, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center border border-primary rounded-3xl overflow-hidden gap-2"
+            >
+              <img
+                src={tournament.image}
+                alt={tournament.name}
+                className="h-3/5 w-full object-cover"
+              />
+              <div className="flex flex-col items-start p-4 gap-2 w-full">
+                <h3 className="font-bold text-sm">{tournament.name}</h3>
+                <p className="text-sm">{tournament.date}</p>
+                <div className="flex justify-between items-center mt-4 w-full">
+                  <p className="text-sm">
+                    <span className="font-bold">{tournament.participants}</span>{" "}
+                    Participants
+                  </p>
+
+                 <Button
+                     text="Join"
+                     size="small"
+                     fontSize="text-sm"
+                     iconLeft={
+                       <img
+                         src="/SCA/assets/icons/shield_check.svg"
+                         alt="Join Icon"
+                         className="w-5 h-5"
+                       />
+                    }
+                  />
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>

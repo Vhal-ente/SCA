@@ -15,7 +15,7 @@ const asideInfoCards = [
           fontSize="text-sm"
           iconLeft={
             <img
-              src="/assets/icons/shield_check.svg"
+              src="/SCA/assets/icons/shield_check.svg"
               alt="Join Icon"
               className="w-5 h-5"
             />
