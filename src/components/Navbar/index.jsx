@@ -27,7 +27,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full text-white px-4 py-3 flex items-center justify-between relative z-30 bg-black lg:bg-transparent">
+    <nav className="w-full text-white px-4 py-3 flex items-center justify-between relative z-30 backdrop-blur-md">
       {/* Logo */}
       <NavLink to="/" className="w-24 sm:w-28 lg:w-32">
         <img src="/assets/sca_logo.png" alt="Logo" className="w-full" />
@@ -38,10 +38,7 @@ export default function Navbar() {
         <ul className="flex gap-6 text-sm">
           {navItems.map((item) => (
             <li key={item.label}>
-              <a
-                href={item.href}
-                className="hover:text-primary transition"
-              >
+              <a href={item.href} className="hover:text-primary transition">
                 {item.label}
               </a>
             </li>
@@ -89,10 +86,7 @@ export default function Navbar() {
                 className="w-full h-full object-cover"
               />
             ) : (
-              <img
-                src="/assets/admins/default_hexagon.svg"
-                alt="default"
-              />
+              <img src="/assets/admins/default_hexagon.svg" alt="default" />
             )}
           </div>
         )}
@@ -108,7 +102,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute left-0 top-full w-full bg-black/80 backdrop-blur-md transition-all duration-300 overflow-hidden ${
+        className={`absolute left-0 top-full w-full bg-white/10 backdrop-blur-md transition-all duration-300 overflow-hidden ${
           isOpen ? "max-h-[500px] py-4" : "max-h-0"
         }`}
       >

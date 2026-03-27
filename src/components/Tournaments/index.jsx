@@ -38,7 +38,7 @@ export default function Tournaments() {
     navigate("/tournamentspage/overview");
   };
   return (
-    <section className="bg-background py-20 px-6 md:px-16">
+    <section id="tournaments" className="bg-background py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
         <h2 onClick={handleTournamentClick} className="text-3xl md:text-4xl text-white text-center mb-12">
           TOURNAMENTS
