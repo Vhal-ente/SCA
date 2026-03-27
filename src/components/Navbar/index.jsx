@@ -27,7 +27,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full text-white px-4 py-3 flex items-center justify-between relative z-30 backdrop-blur-md">
+    <nav className="w-full text-white px-4 py-3 flex items-center justify-between relative z-30">
       {/* Logo */}
       <NavLink to="/" className="w-24 sm:w-28 lg:w-32">
         <img src="/assets/sca_logo.png" alt="Logo" className="w-full" />
@@ -101,11 +101,11 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`absolute left-0 top-full w-full bg-white/10 backdrop-blur-md transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[500px] py-4" : "max-h-0"
-        }`}
-      >
+    <div
+  className={`absolute left-0 top-full w-full bg-black/80 backdrop-blur-md transition-all duration-300 overflow-hidden ${
+    isOpen ? "max-h-[500px] py-4" : "max-h-0"
+  }`}
+>
         <div className="px-4 flex flex-col gap-4">
           <ul className="flex flex-col gap-4 text-sm">
             {navItems.map((item) => (
