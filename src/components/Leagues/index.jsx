@@ -24,24 +24,26 @@ const leagues = [
 export default function Leagues() {
   const navigate = useNavigate();
 
-  const handleLeagueClick = () => {
-    navigate("/leagues/leaguelist");
-  };
-
-  const handleSeeAll = () => {
+  const handleJoin = () => {
     navigate("/leaguespage/leaguepageoverview");
   };
 
+  const handleSeeAll = () => {
+    // navigate("/leaguespage/leaguepageoverview");
+    navigate("/leagues/leaguelist");
+
+  };
+
   return (
-    <section className="bg-background text-white py-10 px-6 md:px-16">
+    <section id="league" className="bg-background text-white py-10 px-6 md:px-16">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 onClick={handleLeagueClick} className="text-3xl md:text-4xl mb-12">
+        <h2 className="text-3xl md:text-4xl mb-12">
           LEAGUES
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
           {leagues.map((league, index) => (
-            <LeagueCard key={index} league={league} />
+            <LeagueCard onClick={handleJoin} key={index} league={league} />
           ))}
         </div>
 

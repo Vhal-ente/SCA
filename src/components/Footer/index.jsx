@@ -8,45 +8,49 @@ import {
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  const [active, setActive] = useState("ABOUT US");
+  const [active, setActive] = useState("");
+
   const footerItems = [
     { label: "ABOUT US", href: "/#about" },
     { label: "WORK WITH US", href: "/#workwithus" },
-    { label: "NEWS", href: "/#news" },
     { label: "TOURNAMENTS", href: "/#tournaments" },
+    { label: "LEAGUES", href: "/#leagues" },
+    { label: "SHOGUN", href: "/shogun" },
   ];
 
   return (
     <section className="bg-background text-white mx-auto py-10 px-6 md:px-16">
-      {/* <div className="flex items-center justify-between"> */}
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
         {/* Logo */}
-        <div className="max-w-36">
+        <div className="w-28 md:w-36">
           <Link to="/">
             <img
               src="/assets/sca_logo.png"
               alt="Logo"
-              className="mx-auto md:mx-0 cursor-pointer"
+              className="mx-auto lg:mx-0"
             />
           </Link>
         </div>
 
-        {/* Footer Navigation Links */}
-        {/* <div className="flex items-center gap-7 "> */}
-        <ul className="flex flex-wrap justify-center gap-4 md:gap-7 text-sm">
-          {footerItems.map((fooitem) => (
-            <li
-              key={fooitem}
-              onClick={() => setActive(fooitem)}
-              className={`cursor-pointer transition duration-300 ${
-                active === fooitem ? "text-primary" : "hover:text-primary"
-              }`}
-            >
-              {fooitem}
+        {/* Navigation */}
+        <ul className="flex flex-wrap justify-center gap-4 md:gap-7 text-sm text-center">
+          {footerItems.map((item) => (
+            <li key={item.label}>
+              <a
+                href={item.href}
+                onClick={() => setActive(item.label)}
+                className={`transition ${
+                  active === item.label
+                    ? "text-primary"
+                    : "hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </a>
             </li>
           ))}
         </ul>
-        {/* </div> */}
+
         {/* Social Icons */}
         <div className="flex gap-3">
           {[FaFacebookF, FaXTwitter, FaYoutube, FaLinkedinIn].map(
@@ -55,27 +59,28 @@ export default function Footer() {
                 key={index}
                 href="#"
                 target="_blank"
-                className="bg-[#42433e] rounded-full p-2"
+                rel="noreferrer"
+                className="bg-[#42433e] rounded-full p-2 hover:bg-primary transition"
               >
-                <Icon className="h-6 w-6" />
+                <Icon className="h-5 w-5" />
               </a>
             )
           )}
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="text-xs mt-10 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-x-24 text-center md:text-left">
-        {/* <div className="text-xs flex items-center justify-center gap-x-24 mt-36 "> */}
-        <p>@2023 SCA. All rights reserved.</p>
-        <div className="flex items-center gap-x-4">
-          <a href="#" className="underline">
+      {/* Bottom */}
+      <div className="text-xs mt-10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+        <p>© 2023 SCA. All rights reserved.</p>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#" className="underline hover:text-primary">
             Privacy Policy
           </a>
-          <a href="#" className="underline">
+          <a href="#" className="underline hover:text-primary">
             Terms of Service
           </a>
-          <a href="#" className="underline">
+          <a href="#" className="underline hover:text-primary">
             Cookies Settings
           </a>
         </div>

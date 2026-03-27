@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
+import { useNavigate } from "react-router-dom";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import LeagueCard from "../InfoCard/LeagueCard";
 
@@ -37,7 +38,15 @@ const leagues = [
   },
 ];
 
+
 export default function LeagueList() {
+  
+  const navigate = useNavigate();
+  const handleJoin = () => {
+     navigate("/leaguespage/leaguepageoverview");
+   };
+
+
   return (
     <div className="min-w-full">
       <div className="min-h-[75vh] bg-[url('/assets/league_images/league_list_img.png')] bg-contain md:bg-cover bg-top relative px-6 py-10">
@@ -68,7 +77,7 @@ export default function LeagueList() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
           {leagues.map((league, index) => (
-            <LeagueCard key={index} league={league} />
+            <LeagueCard onClick={handleJoin} key={index} league={league} />
           ))}
         </div>
       </div>

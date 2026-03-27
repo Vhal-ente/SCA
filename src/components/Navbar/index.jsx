@@ -16,8 +16,9 @@ export default function Navbar() {
   const navItems = [
     { label: "ABOUT US", href: "/#about" },
     { label: "WORK WITH US", href: "/#workwithus" },
-    { label: "NEWS", href: "/#news" },
     { label: "TOURNAMENTS", href: "/#tournaments" },
+    { label: "LEAGUES", href: "/#leagues" },
+    { label: "SHOGUN", href: "/shogun" },
   ];
 
   const hideAvatarOnPaths = ["/login", "/signup"];
@@ -56,16 +57,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-        {/* Search */}
-        <div className="relative">
-          <input
-            type="text"
-            placeholder="SEARCH"
-            className="px-4 py-2 w-56 rounded-lg text-white text-sm border bg-transparent focus:outline-none"
-          />
-          <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute right-3 top-2" />
-        </div>
 
         {/* Avatar */}
         {!hideAvatarOnPaths.includes(location.pathname) && (

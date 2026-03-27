@@ -30,17 +30,17 @@ const tournaments = [
 
 export default function Tournaments() {
   const navigate = useNavigate();
-  const handleTournamentClick = () => {
-    navigate("/tournaments/tournamentlist");
+  const handleJoin = () => {
+    navigate("/tournamentspage/overview");
   };
   
   const handleSeeAll = () => {
-    navigate("/tournamentspage/overview");
+    navigate("/tournaments/tournamentlist");
   };
   return (
     <section id="tournaments" className="bg-background py-20 px-6 md:px-16">
       <div className="max-w-7xl mx-auto">
-        <h2 onClick={handleTournamentClick} className="text-3xl md:text-4xl text-white text-center mb-12">
+        <h2 className="text-3xl md:text-4xl text-white text-center mb-12">
           TOURNAMENTS
         </h2>
 
@@ -71,6 +71,7 @@ export default function Tournaments() {
                   </p>
 
                  <Button
+                  onClick={handleJoin}
                      text="Join"
                      size="small"
                      fontSize="text-sm"
