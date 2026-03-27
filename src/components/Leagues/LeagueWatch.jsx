@@ -7,7 +7,7 @@ export default function LeagueWatch() {
     {
       id: 1,
       image: "//assets/ancient_greek.png",
-      imageTitle: "/SCA/assets/path_of_legends.png",
+      imageTitle: "/assets/path_of_legends.png",
       title: "PATH OF LEGENDS JANUARY 2024",
       uploader: "Manjo",
       views: 860,
@@ -16,8 +16,8 @@ export default function LeagueWatch() {
     },
     {
       id: 2,
-      image: "/SCA/assets/ancient_greek.png",
-      imageTitle: "/SCA/assets/path_of_legends.png",
+      image: "/assets/ancient_greek.png",
+      imageTitle: "/assets/path_of_legends.png",
 
       title: "PATH OF LEGENDS JANUARY 2024",
       uploader: "Manjo",
@@ -27,8 +27,8 @@ export default function LeagueWatch() {
     },
     {
       id: 3,
-      image: "/SCA/assets/ancient_greek.png",
-      imageTitle: "/SCA/assets/path_of_legends.png",
+      image: "/assets/ancient_greek.png",
+      imageTitle: "/assets/path_of_legends.png",
 
       title: "PATH OF LEGENDS JANUARY 2024",
       uploader: "Manjo",

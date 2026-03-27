@@ -7,7 +7,7 @@ import { ArrowCircleLeft2 } from "iconsax-reactjs";
 
 const players = [
   {
-    avatar: "/SCA/assets/admins/mightyness.svg",
+    avatar: "/assets/admins/mightyness.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#1",
@@ -15,7 +15,7 @@ const players = [
     kills: "12",
   },
   {
-    avatar: "/SCA/assets/admins/von.svg",
+    avatar: "/assets/admins/von.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#2",
@@ -23,7 +23,7 @@ const players = [
     kills: "07",
   },
   {
-    avatar: "/SCA/assets/admins/manja.svg",
+    avatar: "/assets/admins/manja.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#3",
@@ -31,7 +31,7 @@ const players = [
     kills: "03",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#4",
@@ -39,7 +39,7 @@ const players = [
     kills: "05",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#5",
@@ -47,7 +47,7 @@ const players = [
     kills: "04",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#6",
@@ -55,7 +55,7 @@ const players = [
     kills: "04",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#7",
@@ -63,7 +63,7 @@ const players = [
     kills: "04",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#8",
@@ -71,7 +71,7 @@ const players = [
     kills: "04",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#9",
@@ -79,7 +79,7 @@ const players = [
     kills: "04",
   },
   {
-    avatar: "/SCA/assets/admins/misha.svg",
+    avatar: "/assets/admins/misha.svg",
     name: "MightyNess",
     username: "The Mighty_Ness",
     position: "#10",

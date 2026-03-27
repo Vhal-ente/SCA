@@ -8,42 +8,42 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 const tournaments = [
   {
     name: "PUBG tournament by Red Bull",
-    image: "/SCA/assets/tournament_images/battlegrounds.png",
+    image: "/assets/tournament_images/battlegrounds.png",
     date: "Jun 26 - Jun 27, 2020",
     participants: 128,
     subtitle: "Clan Senso",
   },
   {
     name: "Apex Legends tournament by Xbox",
-    image: "/SCA/assets/tournament_images/apex.png",
+    image: "/assets/tournament_images/apex.png",
     date: "Jun 27 - Jun 29, 2020",
     participants: 64,
     subtitle: "Clan Senso",
   },
   {
     name: "Rocket League Finals",
-    image: "/SCA/assets/tournament_images/rocket.png",
+    image: "/assets/tournament_images/rocket.png",
     date: "Jul 01 - Jul 02, 2020",
     participants: 1024,
     subtitle: "Clan Senso",
   },
   {
     name: "Call of duty:  Warzone by HyperX",
-    image: "/SCA/assets/warzone_image.png",
+    image: "/assets/warzone_image.png",
     date: "Jul 01 - Jul 03, 2025",
     participants: 256,
     subtitle: "Path of Legends Gaming Event",
   },
   {
     name: "PUBG Global Championship",
-    image: "/SCA/assets/PUBG_Global_Championship.png",
+    image: "/assets/PUBG_Global_Championship.png",
     date: "Jun 24 - Jun 26, 2025",
     participants: 1024,
     subtitle: "Academius Games",
   },
   {
     name: "PUBG Global Championship",
-    image: "/SCA/assets/PUBG_Global_Championship2.png",
+    image: "/assets/PUBG_Global_Championship2.png",
     date: "Jun 24 - Jun 26, 2025",
     participants: 1024,
     subtitle: "Clan Senso",
@@ -114,7 +114,7 @@ export default function TournamentList() {
                      fontSize="text-sm"
                      iconLeft={
                        <img
-                         src="/SCA/assets/icons/shield_check.svg"
+                         src="/assets/icons/shield_check.svg"
                          alt="Join Icon"
                          className="w-5 h-5"
                        />

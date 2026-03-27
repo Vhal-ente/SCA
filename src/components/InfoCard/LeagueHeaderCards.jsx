@@ -16,7 +16,7 @@ const headerInfoCards = [
     title: "Mode",
     icon: (
       <img
-        src="/SCA/assets/icons/shapes_1.svg"
+        src="/assets/icons/shapes_1.svg"
         alt="Type Icon"
         className="w-6 h-6"
       />
