@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -25,6 +25,18 @@ export default function Navbar() {
   const handleUserClick = () => {
     navigate("/userpage/userpageoverview");
   };
+
+  useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 1024) {
+      setIsOpen(false);
+    }
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   return (
     <nav className="w-full text-white px-4 py-3 flex items-center justify-between relative z-30">
@@ -102,7 +114,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
     <div
-  className={`absolute left-0 top-full w-full bg-black/80 backdrop-blur-md transition-all duration-300 overflow-hidden ${
+  className={`absolute left-0 top-full w-full bg-black/80 backdrop-blur-md transition-all duration-300 overflow-hidden lg:hidden ${
     isOpen ? "max-h-[500px] py-4" : "max-h-0"
   }`}
 >
