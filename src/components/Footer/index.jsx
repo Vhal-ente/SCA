@@ -10,11 +10,10 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   const [active, setActive] = useState("ABOUT US");
   const footerItems = [
-    "ABOUT US",
-    "WORK WITH US",
-    "NEWS",
-    "TOURNAMENTS",
-    "F.A.Q",
+    { label: "ABOUT US", href: "/#about" },
+    { label: "WORK WITH US", href: "/#workwithus" },
+    { label: "NEWS", href: "/#news" },
+    { label: "TOURNAMENTS", href: "/#tournaments" },
   ];
 
   return (
