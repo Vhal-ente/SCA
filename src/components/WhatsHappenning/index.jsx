@@ -3,9 +3,9 @@ import { ChevronRight } from "lucide-react";
 import { IoMdArrowRoundForward } from "react-icons/io";
 
 const items = [
-  { title: "Become a player", tag: "News" },
-  { title: "Join a Tournament", tag: "News" },
-  { title: "Join a Clan", tag: "NEWS" },
+  { title: "Shogun", href: "/shogun", tag: "NEWS" },
+  { title: "Join a Tournament", href: "/tournaments/tournamentlist", tag: "Update" },
+  { title: "Join a League", href: "/leagues/leaguelist", tag: "NEWS" },
 ];
 
 const slides = [
