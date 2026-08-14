@@ -4,7 +4,7 @@ import "./coming-soon.css";
 
 // Update these values when the launch details are confirmed.
 const LAUNCH_DATE = "2026-09-30T18:00:00+01:00";
-const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/REPLACE_WITH_COMMUNITY_INVITE";
+const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/IEXZogVTk49GOUX2JNWMdS?s=qt&p=a&ilr=0&amv=2";
 const BACKGROUND_IMAGE_PATH = "/assets/coming-soon-background.png";
 
 function getTimeRemaining(targetDate) {
