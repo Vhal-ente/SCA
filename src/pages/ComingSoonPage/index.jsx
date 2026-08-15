@@ -55,16 +55,19 @@ export default function ComingSoonPage() {
       style={{ "--coming-soon-background": `url("${BACKGROUND_IMAGE_PATH}")` }}
     >
       <div className="coming-soon__overlay" />
+      <div className="coming-soon__brand-wrap">
+        <img
+          className="coming-soon__logo"
+          src="/assets/sca_logo.png"
+          alt="SCA logo"
+        />
+      </div>
+
       <section className="coming-soon__card" aria-labelledby="coming-soon-title">
         <div className="coming-soon__top-badge">
           <span aria-hidden="true">🚀</span>
           <span>Coming Soon</span>
         </div>
-
-        <p className="coming-soon__launch-status">
-          <span className="coming-soon__status-dot" aria-hidden="true" />
-          Launching soon
-        </p>
 
         <h1 id="coming-soon-title">
           Something Amazing is <span>Coming</span>
