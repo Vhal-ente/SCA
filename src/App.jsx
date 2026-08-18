@@ -29,14 +29,25 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import UserWrapper from "./components/User/UserWrapper";
 import UserPageOverview from "./pages/UserPage/UserPageOverview";
 import ComingSoonPage from "./pages/ComingSoonPage";
+import NewsPage from "./pages/NewsPage";
+import NewsArticlePage from "./pages/NewsArticlePage";
+import ScrollManager from "./components/ScrollManager";
+import ShogunPage from "./pages/ShogunPage";
+import ShogunRosterPage from "./pages/ShogunRosterPage";
 
 export default function App() {
   return (
        <BrowserRouter>
     <AuthProvider>
+        <ScrollManager />
         <Routes>
           {/* Temporary launch page. Restore <LandingPage /> here after launch. */}
           <Route path="/" element={<ComingSoonPage />} />
+          <Route path="landingpage" element={<LandingPage />} />
+          <Route path="news" element={<NewsPage />} />
+          <Route path="news/:slug" element={<NewsArticlePage />} />
+          <Route path="shogun" element={<ShogunPage />} />
+          <Route path="shogun/:division" element={<ShogunRosterPage />} />
 
           {/* <Route path="/" element={<Navigate to="/login" replace />} /> */}
 

@@ -1,34 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Outfit", sans-serif;
-  color: #d9d9d9;
-}
-
-.text-primary {
-  color: #36f6c6;
-}
-
-.text-general {
-  color: #d9d9d9;
-}
-
-.text-dark {
-  color: #292929;
-}
-
-.bg-primary {
-  background-color: #36f6c6;
-}
-
-.bg-background {
-  background-color: #292929;
-}
-
-@theme {
-  --color-primary: #36f6c6;
-
-}
+:root { --background:#f6f8f7; --surface:#fff; --surface-secondary:#edf2f0; --text-primary:#101715; --text-secondary:#65706d; --border:#dce4e1; --accent:#20cfa8; --accent-hover:#16b993; --accent-text:#071511; --header:rgba(246,248,247,.88); --shadow:0 18px 50px rgba(16,31,27,.08); }
+[data-theme="dark"] { --background:#0d1211; --surface:#151b19; --surface-secondary:#1c2421; --text-primary:#f5f8f7; --text-secondary:#9aa7a3; --border:#293431; --accent:#31e6bd; --accent-hover:#48efca; --accent-text:#071511; --header:rgba(13,18,17,.88); --shadow:0 18px 50px rgba(0,0,0,.2); }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:88px; background:var(--background); }
+body { margin:0; min-width:320px; overflow-x:hidden; font-family:"Outfit",sans-serif; background:var(--background); color:var(--text-primary); }
+#root { min-height:100vh; overflow-x:clip; }
+[id] { scroll-margin-top:88px; }
+button,input { font:inherit; } a { color:inherit; } img { max-width:100%; }
+::selection { background:var(--accent); color:var(--accent-text); }
+:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.text-primary { color:var(--accent); }.text-general { color:var(--text-secondary); }.text-dark,.text-white { color:var(--text-primary); }.bg-primary { background-color:var(--accent); }.bg-background { background-color:var(--background); }
+.theme-toggle { width:40px; height:40px; display:grid; place-items:center; color:inherit; background:var(--surface); border:1px solid var(--border); border-radius:50%; cursor:pointer; transition:transform .2s,background-color .2s,border-color .2s; }
+.theme-toggle:hover { transform:rotate(8deg); border-color:var(--accent); }.theme-toggle svg { width:18px; }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+@media (max-width:767px) { html { scroll-padding-top:72px; } [id] { scroll-margin-top:72px; } }
+@theme { --color-primary:#31e6bd; }
