@@ -5,3 +5,4 @@
 
 /* The tab row may scroll sideways on small screens, but never vertically. */
 .tournament-subnav{overflow-x:auto;overflow-y:hidden}
+.tournament-title-actions .button,.registration-panel .button{text-decoration:none}.registration-panel .button-full{margin-top:18px;justify-content:center}.button-disabled{cursor:not-allowed;opacity:.58;pointer-events:none}

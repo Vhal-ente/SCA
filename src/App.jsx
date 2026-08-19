@@ -49,6 +49,8 @@ import DashboardLayout from "./components/DashboardLayout";
 import { DashboardCreateTeam, DashboardLeagues, DashboardMatchDetail, DashboardMatches, DashboardNotifications, DashboardOverview, DashboardProfile, DashboardRewards, DashboardSettings, DashboardTeamDetail, DashboardTeams, DashboardTournaments } from "./pages/DashboardPages";
 import PublicPlayerPage from "./pages/PublicPlayerPage";
 import TeamPreviewPage from "./pages/TeamPreviewPage";
+import TournamentJoinPage from "./pages/TournamentJoinPage";
+import LeagueJoinPage from "./pages/LeagueJoinPage";
 
 export default function App() {
   return (
@@ -74,6 +76,8 @@ export default function App() {
           <Route path="press-kit" element={<PressKitPage />} />
           <Route path="players/:username" element={<PublicPlayerPage />} />
           <Route path="teams/:teamSlug" element={<TeamPreviewPage />} />
+          <Route path="tournamentspage/join" element={<ProtectedRoute><TournamentJoinPage /></ProtectedRoute>} />
+          <Route path="leaguespage/join" element={<ProtectedRoute><LeagueJoinPage /></ProtectedRoute>} />
           <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
             <Route path="dashboard" element={<DashboardOverview />} />
             <Route path="dashboard/profile" element={<DashboardProfile />} />

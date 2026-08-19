@@ -6,12 +6,12 @@ import { TournamentListingCard } from "../CompetitionCards";
 import "../CompetitionCards/listing.css";
 
 const tournaments = [
-  { name: "PUBG Tournament by Red Bull", image: "/assets/tournament_images/battlegrounds.png", date: "Sep 26 – Sep 27, 2026", participants: 128, organizer: "Clan Sense", status: "Upcoming", prize: "$5,000" },
-  { name: "Apex Legends Open", image: "/assets/tournament_images/apex.png", date: "Sep 27 – Sep 29, 2026", participants: 64, organizer: "SCA Open Series", status: "Upcoming", prize: "$3,500" },
-  { name: "Rocket League Finals", image: "/assets/tournament_images/rocket.png", date: "Oct 01 – Oct 02, 2026", participants: 128, organizer: "Academius Games", status: "Upcoming", prize: "$4,000" },
-  { name: "Call of Duty: Warzone by HyperX", image: "/assets/warzone_image.png", date: "Aug 01 – Aug 05, 2026", participants: 256, organizer: "Path of Legends", status: "Live", prize: "$10,000" },
-  { name: "PUBG Global Championship", image: "/assets/PUBG_Global_Championship.png", date: "Oct 24 – Oct 26, 2026", participants: 1024, organizer: "Academius Games", status: "Upcoming", prize: "$7,500" },
-  { name: "SCA Mobile Masters", image: "/assets/PUBG_Global_Championship2.png", date: "Aug 15 – Aug 20, 2026", participants: 64, organizer: "Clan Sense", status: "Live", prize: "$5,000" },
+  { name: "PUBG Tournament by Red Bull", slug: "pubg-red-bull", entryFee: 1500, image: "/assets/tournament_images/battlegrounds.png", date: "Sep 26 – Sep 27, 2026", participants: 128, organizer: "Clan Sense", status: "Upcoming", prize: "$5,000" },
+  { name: "Apex Legends Open", slug: "apex-legends-open", image: "/assets/tournament_images/apex.png", date: "Sep 27 – Sep 29, 2026", participants: 64, organizer: "SCA Open Series", status: "Live", prize: "$3,500" },
+  { name: "Rocket League Finals", slug: "rocket-league-finals", image: "/assets/tournament_images/rocket.png", date: "Oct 01 – Oct 02, 2026", participants: 128, organizer: "Academius Games", status: "Ended", prize: "$4,000" },
+  { name: "Call of Duty: Warzone by HyperX", slug: "warzone-hyperx-2026", entryFee: 2500, image: "/assets/warzone_image.png", date: "Aug 01 – Aug 05, 2026", participants: 256, organizer: "Path of Legends", status: "Upcoming", prize: "$10,000" },
+  { name: "PUBG Global Championship", slug: "pubg-global-championship", image: "/assets/PUBG_Global_Championship.png", date: "Oct 24 – Oct 26, 2026", participants: 1024, organizer: "Academius Games", status: "Registered", prize: "$7,500" },
+  { name: "SCA Mobile Masters", slug: "sca-mobile-masters", entryFee: 0, image: "/assets/PUBG_Global_Championship2.png", date: "Aug 15 – Aug 20, 2026", participants: 64, organizer: "Clan Sense", status: "Upcoming", prize: "$5,000" },
 ];
 
 export default function TournamentList() {

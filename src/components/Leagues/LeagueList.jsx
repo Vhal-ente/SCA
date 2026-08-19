@@ -6,12 +6,12 @@ import { LeagueListingCard } from "../CompetitionCards";
 import "../CompetitionCards/listing.css";
 
 const leagues = [
-  { name: "Path of Legends", image: "/assets/path_of_legends.png", game: "Multi-title league", description: "A seasonal competition for established teams pursuing the SCA championship.", season: "Season 3", format: "12 teams", status: "Active" },
-  { name: "Academius Games", image: "/assets/academius_2.png", game: "Collegiate esports", description: "Structured league play designed to develop and showcase rising competitive talent.", season: "Season 1", format: "8 teams", status: "Active" },
-  { name: "Clan Sense", image: "/assets/clan_war_2.png", game: "Community league", description: "Team-first competition with regular match weeks and an elimination championship.", season: "Season 2", format: "16 teams", status: "Registration" },
-  { name: "Path of Legends Open", image: "/assets/path_of_legends.png", game: "Open division", description: "An accessible route into the Path of Legends competitive ecosystem.", season: "Open Series", format: "32 teams", status: "Upcoming" },
-  { name: "Academius Challengers", image: "/assets/academius_2.png", game: "Development league", description: "A proving ground for new rosters preparing for premier SCA competition.", season: "Split 2", format: "10 teams", status: "Upcoming" },
-  { name: "Clan Sense Masters", image: "/assets/clan_war_2.png", game: "Invitational", description: "A compact invitational featuring high-performing community teams.", season: "Masters 2026", format: "8 teams", status: "Upcoming" },
+  { name: "Path of Legends", slug: "path-of-legends", entryFee: 10000, image: "/assets/path_of_legends.png", game: "EA FC", description: "A seasonal competition for established teams pursuing the SCA championship.", season: "Season 3", format: "12 teams", status: "Registration" },
+  { name: "Academius Games", slug: "academius-games", image: "/assets/academius_2.png", game: "Collegiate esports", description: "Structured league play designed to develop and showcase rising competitive talent.", season: "Season 1", format: "8 teams", status: "Active" },
+  { name: "Clan Sense", slug: "clan-sense", entryFee: 0, image: "/assets/clan_war_2.png", game: "PUBG Mobile", description: "Team-first competition with regular match weeks and an elimination championship.", season: "Season 2", format: "16 teams", status: "Registration" },
+  { name: "Path of Legends Open", slug: "path-of-legends-open", image: "/assets/path_of_legends.png", game: "Open division", description: "An accessible route into the Path of Legends competitive ecosystem.", season: "Open Series", format: "32 teams", status: "Upcoming" },
+  { name: "Academius Challengers", slug: "academius-challengers", image: "/assets/academius_2.png", game: "Development league", description: "A proving ground for new rosters preparing for premier SCA competition.", season: "Split 2", format: "10 teams", status: "Upcoming" },
+  { name: "Clan Sense Masters", slug: "clan-sense-masters", image: "/assets/clan_war_2.png", game: "Invitational", description: "A compact invitational featuring high-performing community teams.", season: "Masters 2026", format: "8 teams", status: "Ended" },
 ];
 
 export default function LeagueList() {
