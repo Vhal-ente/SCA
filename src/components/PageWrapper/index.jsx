@@ -19,7 +19,7 @@ export default function PageWrapper() {
         </div>
       </div>
 
-      <div className="bg-background text-general px-8">
+      <div className="bg-background text-general">
         <Outlet />
       </div>
 

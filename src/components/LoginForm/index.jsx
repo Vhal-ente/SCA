@@ -1,98 +1,22 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { IoArrowForwardCircle } from "react-icons/io5";
+import { useState } from "react";
+import { ArrowRight, Eye, EyeOff, LockKeyhole, UserRound } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function LoginForm() {
   const { login } = useAuth();
   const navigate = useNavigate();
-
-  const [username, setUsername] = useState("");
+  const location = useLocation();
+  const [ign, setIgn] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); //For validation messages
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    //Basic Validation
-    if (!username.trim() || !password.trim()) {
-      setError("Please enter both username/email and password.");
-      return;
-    }
-
-    setError(""); //to clear any previous error
-
-    //We will replace with real API later
-    const fakeUser = {
-      id: 1,
-      name: username,
-      email: username.includes("@") ? username : `${username}@example.com`,
-    };
-    login(fakeUser);
-
-    // Go back to original protected page, or home if none
-    const redirectTo = location.state?.from?.pathname || "/";
-    navigate(redirectTo, { replace: true });
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!ign.trim() || !password.trim()) { setError("Enter your IGN / Gamer Tag and password."); return; }
+    setError("");
+    login({ id: 1, name: ign.trim(), ign: ign.trim(), email: "" });
+    navigate(location.state?.from?.pathname || "/dashboard", { replace: true });
   };
-
-  return (
-    <div className="max-h-fit max-w-screen-sm bg-background rounded-xl py-6 px-12 mx-auto my-40">
-      <h2 className="text-4xl font-normal text-white mb-16">Log in</h2>
-
-      {error && (
-        <p className="text-red-500 text-sm font-medium mb-6">{error}</p>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        <div className="mb-12">
-          <label htmlFor="username" className="mb-2 block text-white">
-            Username/Email
-          </label>
-
-          <input
-            id="username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="bg-transparent border border-white text-white p-2 rounded w-full focus:outline-none focus:ring-1 focus:ring-white"
-          />
-        </div>
-
-        <div className="mb-16">
-          <label htmlFor="password" className="mb-2 block text-white">
-            Password
-          </label>
-
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="bg-transparent border border-white text-white p-2 rounded w-full focus:outline-none focus:ring-1 focus:ring-white"
-          />
-        </div>
-
-        <div className="flex items-center gap-10">
-          <button
-            type="submit"
-            className="flex items-center bg-primary rounded py-2 px-5 gap-3"
-          >
-            <span>
-              <IoArrowForwardCircle className="h-8 w-8 text-[#1E1E1E]" />
-            </span>
-            <span className="text-[#1E1E1E] font-bold">LOG IN</span>
-          </button>
-          <p className="font-bold text-xl text-primary">Forgot password</p>
-        </div>
-      </form>
-
-      {/* Link to Signup page */}
-      <p className="text-white mt-6">
-        Don't have an account?{" "}
-        <Link to="/signup" className="text-primary font-bold underline">
-          Sign Up
-        </Link>
-      </p>
-    </div>
-  );
+  return <div className="auth-card"><div className="auth-card-heading"><p className="eyebrow">Welcome back</p><h2>Log in to SCA</h2><p>Access your competitions, teams, and match updates.</p></div>{error && <div className="auth-error" role="alert">{error}</div>}<form onSubmit={handleSubmit} noValidate><label className="auth-field" htmlFor="login-ign"><span>IGN / Gamer Tag</span><div><UserRound/><input id="login-ign" type="text" autoComplete="username" value={ign} onChange={(event) => setIgn(event.target.value)} placeholder="Enter your gamer tag" required/></div></label><label className="auth-field" htmlFor="login-password"><span>Password</span><div><LockKeyhole/><input id="login-password" type={showPassword ? "text" : "password"} autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="Enter your password" required/><button type="button" onClick={() => setShowPassword(value => !value)} aria-label={showPassword ? "Hide password" : "Show password"}>{showPassword ? <EyeOff/> : <Eye/>}</button></div></label><div className="auth-form-options"><label><input type="checkbox"/> Remember me</label><a href="mailto:info@sca.gg?subject=Password reset">Forgot password?</a></div><button className="button auth-submit" type="submit">Log in <ArrowRight/></button></form><p className="auth-switch">New to SCA? <Link to="/signup">Create an account</Link></p></div>;
 }

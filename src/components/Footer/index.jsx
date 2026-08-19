@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const groups = {
   SCA: [["About Us","/landingpage#about"],["How It Works","/landingpage#how-it-works"],["Tournaments","/tournaments/tournamentlist"],["Leagues","/leagues/leaguelist"],["Games","/landingpage#games"]],
-  Support: [["FAQ","/landingpage#faq"],["Contact Us","mailto:info@sca.gg"],["Help Center","#"],["Community Rules","#"]],
-  Legal: [["Terms of Service","#"],["Privacy Policy","#"],["Refund Policy","#"],["Fair Play Policy","#"]],
-  Company: [["Careers","#"],["Sponsor Program","/landingpage#partners"],["Press Kit","#"]],
+  Support: [["FAQ","/landingpage#faq"],["Contact Us","mailto:info@sca.gg"],["Report an Issue","/community#report-issue"],["Community Rules","#"]],
+  Legal: [["Terms of Service","/terms-of-service"],["Privacy Policy","/privacy-policy"],["Refund Policy","/refund-policy"],["Fair Play Policy","/fair-play-policy"]],
+  Company: [["Careers","/careers"],["Sponsor Program","/sponsor-program"],["Press Kit","/press-kit"]],
 };
 
 export default function Footer() {

@@ -1,90 +1,21 @@
-import React from "react";
+import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import { useNavigate } from "react-router-dom";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
-import LeagueCard from "../InfoCard/LeagueCard";
+import { LeagueListingCard } from "../CompetitionCards";
+import "../CompetitionCards/listing.css";
 
 const leagues = [
-  {
-    name: "Path of Legends",
-    image: "/assets/path_of_legends.png",
-    subtitle: "Path of Legends Gaming League",
-  },
-  {
-    name: "Academius Games",
-    image: "/assets/academius_2.png",
-    subtitle: "Academius League",
-  },
-  {
-    name: "Clan Senso",
-    image: "/assets/clan_war_2.png",
-    subtitle: "Clan Senso League",
-  },
-  {
-    name: "Path of Legends",
-    image: "/assets/path_of_legends.png",
-    subtitle: "Path of Legends Gaming League",
-  },
-  {
-    name: "Academius Games",
-    image: "/assets/academius_2.png",
-    subtitle: "Academius League",
-  },
-  {
-    name: "Clan Senso",
-    image: "/assets/clan_war_2.png",
-    subtitle: "Clan Senso League",
-  },
+  { name: "Path of Legends", image: "/assets/path_of_legends.png", game: "Multi-title league", description: "A seasonal competition for established teams pursuing the SCA championship.", season: "Season 3", format: "12 teams", status: "Active" },
+  { name: "Academius Games", image: "/assets/academius_2.png", game: "Collegiate esports", description: "Structured league play designed to develop and showcase rising competitive talent.", season: "Season 1", format: "8 teams", status: "Active" },
+  { name: "Clan Sense", image: "/assets/clan_war_2.png", game: "Community league", description: "Team-first competition with regular match weeks and an elimination championship.", season: "Season 2", format: "16 teams", status: "Registration" },
+  { name: "Path of Legends Open", image: "/assets/path_of_legends.png", game: "Open division", description: "An accessible route into the Path of Legends competitive ecosystem.", season: "Open Series", format: "32 teams", status: "Upcoming" },
+  { name: "Academius Challengers", image: "/assets/academius_2.png", game: "Development league", description: "A proving ground for new rosters preparing for premier SCA competition.", season: "Split 2", format: "10 teams", status: "Upcoming" },
+  { name: "Clan Sense Masters", image: "/assets/clan_war_2.png", game: "Invitational", description: "A compact invitational featuring high-performing community teams.", season: "Masters 2026", format: "8 teams", status: "Upcoming" },
 ];
 
-
 export default function LeagueList() {
-  
-  const navigate = useNavigate();
-  const handleJoin = () => {
-     navigate("/leaguespage/leaguepageoverview");
-   };
-
-
-  return (
-    <div className="min-w-full">
-      <div className="min-h-[75vh] bg-[url('/assets/league_images/league_list_img.png')] bg-contain md:bg-cover bg-top relative px-6 py-10">
-        {/* AN OVERLAY */}
-        <div className="absolute inset-0 bg-black/20 z-30"></div>
-        {/* THE BLUR */}
-        <div className="absolute inset-0 bg-black/0 bg-gradient-to-b from-[#000000] to-[#D9D9D900] max-h-30 z-40"></div>
-
-        <div className="relative z-50">
-          <div className="max-w-full bg-transparent mx-auto">
-            <Navbar />
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-background text-general px-10 py-20">
-        <div className="text-center text-white">
-          <h2 className="text-3xl md:text-5xl text-center mb-12">LEAGUES</h2>
-          <div className="relative lg:w-1/2 mx-auto mb-20">
-            <input
-              type="text"
-              placeholder="SEARCH"
-              className="pl-4 pr-10 py-2 border rounded-full w-full"
-            />
-            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 justify-items-center">
-          {leagues.map((league, index) => (
-            <LeagueCard onClick={handleJoin} key={index} league={league} />
-          ))}
-        </div>
-      </div>
-
-      <div className="max-w-full">
-        <Footer />
-      </div>
-    </div>
-  );
+  const [query, setQuery] = useState("");
+  const filtered = useMemo(() => leagues.filter(item => `${item.name} ${item.game}`.toLowerCase().includes(query.toLowerCase())), [query]);
+  return <div className="competition-list-page"><Navbar/><header className="competition-list-hero league-list-hero"><div className="container"><p className="eyebrow">Season-long competition</p><h1>Leagues</h1><p>Follow standings, schedules, and the teams competing across SCA’s active gaming leagues.</p></div></header><main className="competition-list-main"><div className="container"><div className="listing-toolbar"><div><p className="eyebrow">Current competitions</p><h2>Explore SCA leagues</h2></div><label className="listing-search"><span className="sr-only">Search leagues</span><Search/><input value={query} onChange={event => setQuery(event.target.value)} type="search" placeholder="Search leagues"/></label></div>{filtered.length ? <div className="listing-league-grid">{filtered.map(item => <LeagueListingCard key={item.name} league={item}/>)}</div> : <p className="listing-empty">No leagues match your search.</p>}</div></main><Footer/></div>;
 }

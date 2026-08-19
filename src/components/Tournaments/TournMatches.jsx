@@ -1,96 +1,14 @@
-import MatchRoundCard from "../InfoCard/MatchRoundCard";
+import { ArrowRight, CalendarDays, CheckCircle2, Clock3, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 import TournamentsNav from "../Navbar/TournamentsNav";
-import { useNavigate } from "react-router-dom";
+import "./tournament-secondary.css";
+
+const rounds = [
+  { round: 1, date: "09 Jan 2026", time: "21:15 WAT", status: "Finished", match: "#73456" },
+  { round: 2, date: "10 Jan 2026", time: "21:15 WAT", status: "Finished", match: "#73472" },
+  { round: 3, date: "10 Jan 2026", time: "22:00 WAT", status: "Finished", match: "#73488" },
+];
 
 export default function TournMatches() {
-  const navigate = useNavigate();
-
-  const goToTournamentMatches2 = () => {
-    navigate("/tournamentspage/matches2");
-  };
-
-  // const dummyAvatar = "https://i.pravatar.cc/40?img=";
-
-  const matchGroupData = [
-    {
-      round: 1,
-      matches: [
-        {
-          time: "21:15 WAT",
-          date: "09 JAN",
-          avatars: [
-            "/assets/admins/mightyness.svg",
-            "/assets/admins/von.svg",
-            "/assets/admins/manja.svg",
-            "/assets/admins/misha.svg",
-          ],
-          extraPlayers: 67,
-          status: "Finished",
-        },
-      ],
-    },
-    {
-      round: 2,
-      matches: [
-        {
-          time: "21:15 WAT",
-          date: "10 JAN",
-          avatars: [
-            "/assets/admins/mightyness.svg",
-            "/assets/admins/von.svg",
-            "/assets/admins/manja.svg",
-            "/assets/admins/misha.svg",
-          ],
-          extraPlayers: 67,
-          status: "Finished",
-        },
-      ],
-    },
-    {
-      round: 3,
-      matches: [
-        {
-          time: "21:15 WAT",
-          date: "10 JAN",
-          avatars: [
-            "/assets/admins/mightyness.svg",
-            "/assets/admins/von.svg",
-            "/assets/admins/manja.svg",
-            "/assets/admins/misha.svg",
-          ],
-          extraPlayers: 67,
-          status: "Finished",
-        },
-      ],
-    },
-  ];
-
-  return (
-    <div>
-      <div className="flex flex-col items-center justify-center gap-6 mb-12">
-        <div>
-          <TournamentsNav />
-        </div>
-
-        <div className="max-w-4xl flex flex-col items-center justify-center text-center mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-white">
-            Call Of Duty: Warzone By HyperX
-          </h1>
-        </div>
-      </div>
-
-      <div className="mb-16">
-        {matchGroupData.map((group, groupIndex) => (
-          <div key={groupIndex} className="mb-10">
-            <h2 className="text-primary text-3xl mb-4">ROUND #{group.round}</h2>
-            <div onClick={goToTournamentMatches2}>
-              {group.matches.map((match, matchIndex) => (
-                <MatchRoundCard key={matchIndex} {...match} />
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return <main className="tournament-secondary"><div className="tournament-secondary-container"><TournamentsNav/><header className="secondary-header"><div><p className="eyebrow">Schedule & results</p><h1>Matches</h1><p>Review each round, match time, participant count, and completed results.</p></div></header><div className="round-list">{rounds.map(item => <section className="round-group" key={item.round}><div className="round-label"><span>Round</span><strong>{String(item.round).padStart(2,"0")}</strong></div><Link className="match-row" to="/tournamentspage/matches2"><div className="match-date"><CalendarDays/><div><strong>{item.date}</strong><span><Clock3/>{item.time}</span></div></div><div className="match-participants"><div className="avatar-stack">{["mightyness","von","manja","misha"].map(name => <img key={name} src={`/assets/admins/${name}.svg`} alt=""/>)}</div><span><Users/>71 players</span></div><span className="match-status"><CheckCircle2/>{item.status}</span><strong className="match-number">Match {item.match}</strong><ArrowRight/></Link></section>)}</div></div></main>;
 }

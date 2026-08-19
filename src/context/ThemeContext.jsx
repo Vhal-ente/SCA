@@ -10,6 +10,7 @@ function getInitialTheme() {
 
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(getInitialTheme);
+  const [mode, setMode] = useState(() => window.localStorage.getItem("sca-theme-mode") || window.localStorage.getItem("sca-theme") || "system");
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -19,8 +20,19 @@ export function ThemeProvider({ children }) {
 
   const value = useMemo(() => ({
     theme,
-    toggleTheme: () => setTheme((current) => current === "dark" ? "light" : "dark"),
-  }), [theme]);
+    mode,
+    toggleTheme: () => setTheme((current) => {
+      const next = current === "dark" ? "light" : "dark";
+      setMode(next);
+      window.localStorage.setItem("sca-theme-mode", next);
+      return next;
+    }),
+    setThemeMode: (nextMode) => {
+      setMode(nextMode);
+      window.localStorage.setItem("sca-theme-mode", nextMode);
+      setTheme(nextMode === "system" ? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : nextMode);
+    },
+  }), [theme, mode]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }

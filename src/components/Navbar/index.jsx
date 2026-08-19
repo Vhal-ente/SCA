@@ -2,17 +2,16 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
-import { WHATSAPP_CHANNEL_URL } from "@/config/links";
 
 const navItems = [
   { label: "About Us", href: "/landingpage#about" },
-  { label: "Tournaments", href: "/landingpage#tournaments" },
-  { label: "Leagues", href: "/landingpage#leagues" },
+  { label: "Tournaments", href: "/tournaments/tournamentlist", internal: true },
+  { label: "Leagues", href: "/leagues/leaguelist", internal: true },
   { label: "Games", href: "/landingpage#games" },
   { label: "Partners", href: "/landingpage#partners" },
   { label: "News", href: "/news", internal: true },
   { label: "Shogun Clan", href: "/shogun", internal: true },
-  { label: "Community", href: WHATSAPP_CHANNEL_URL, external: true },
+  { label: "Community", href: "/community", internal: true },
 ];
 
 export default function Navbar() {

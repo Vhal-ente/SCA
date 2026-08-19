@@ -1,8 +1,8 @@
 export const shogunEvents = [
-  { title: "Yami no Takai: Season 2", season: "Season 2", date: "September 12, 2026", category: "Call of Duty Mobile" },
-  { title: "Path to Glory", season: "Qualifier", date: "October 03, 2026", category: "MLBB" },
-  { title: "Night Raid Invitational", season: "Invitational", date: "October 24, 2026", category: "PUBG Mobile" },
-  { title: "Shogun Open Cup", season: "Series 1", date: "November 08, 2026", category: "EA FC" },
+  { title: "Yami no Takai: Season 2", season: "Season 2", date: "September 12, 2026", category: "Call of Duty Mobile", format: "5v5 · Double elimination", location: "Online", image: "/assets/warzone_image.png", description: "Shogun returns for the second season of Yami no Takai, facing elite squads across a high-pressure double-elimination bracket." },
+  { title: "Path to Glory", season: "Qualifier", date: "October 03, 2026", category: "MLBB", format: "5v5 · Qualifier", location: "Online", image: "/assets/path_of_legends.png", description: "The MLBB division begins its Path to Glory campaign, competing for a place in the main-stage bracket." },
+  { title: "Night Raid Invitational", season: "Invitational", date: "October 24, 2026", category: "PUBG Mobile", format: "Squads · Invitational", location: "Online", image: "/assets/PUBG_Global_Championship2.png", description: "An invitation-only battle featuring established PUBG Mobile rosters and a full evening of competitive matches." },
+  { title: "Shogun Open Cup", season: "Series 1", date: "November 08, 2026", category: "EA FC", format: "1v1 · Knockout", location: "Online", image: "/assets/tournament_images/tournament_list_img.png", description: "The opening EA FC series brings individual competitors together in a fast single-elimination tournament." },
 ];
 
 export const shogunDivisions = [
