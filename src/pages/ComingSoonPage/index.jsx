@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import "./coming-soon.css";
 
 // Update these values when the launch details are confirmed.
 const LAUNCH_DATE = "2026-09-30T18:00:00+01:00";
-const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/REPLACE_WITH_COMMUNITY_INVITE";
+const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/IEXZogVTk49GOUX2JNWMdS?s=qt&p=a&ilr=0&amv=2";
 const BACKGROUND_IMAGE_PATH = "/assets/coming-soon-background.png";
 
 function getTimeRemaining(targetDate) {
@@ -55,16 +56,26 @@ export default function ComingSoonPage() {
       style={{ "--coming-soon-background": `url("${BACKGROUND_IMAGE_PATH}")` }}
     >
       <div className="coming-soon__overlay" />
+      <div className="coming-soon__brand-wrap">
+        <Link to="/landingpage" aria-label="Go to the SCA landing page">
+          <img
+            className="coming-soon__logo"
+            src="/assets/sca_logo.png"
+            alt="SCA logo"
+          />
+        </Link>
+      </div>
+
       <section className="coming-soon__card" aria-labelledby="coming-soon-title">
-        <div className="coming-soon__top-badge">
+        <div className="coming-soon__top-badge mb-4">
           <span aria-hidden="true">🚀</span>
           <span>Coming Soon</span>
         </div>
-
+{/* 
         <p className="coming-soon__launch-status">
           <span className="coming-soon__status-dot" aria-hidden="true" />
           Launching soon
-        </p>
+        </p> */}
 
         <h1 id="coming-soon-title">
           Something Amazing is <span>Coming</span>
