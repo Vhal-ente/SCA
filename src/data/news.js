@@ -1,6 +1,7 @@
 export const newsArticles = [
   {
     slug: "next-path-of-legends-tournament",
+    featured: true,
     category: "Tournament",
     title: "SCA Announces the Next Path of Legends Tournament",
     excerpt: "Get ready for another round of competitive gaming as players battle for rankings, prizes, and a place among SCA’s top competitors.",
@@ -14,6 +15,7 @@ export const newsArticles = [
   },
   {
     slug: "academius-games-season-one",
+    featured: true,
     category: "League",
     title: "Academius Games Season One Is Now Live",
     excerpt: "A new league season gives rising teams a consistent stage to compete, improve, and earn recognition.",
@@ -23,6 +25,7 @@ export const newsArticles = [
   },
   {
     slug: "sca-hyperx-partnership",
+    featured: true,
     category: "Partnership",
     title: "SCA and HyperX Expand Their Tournament Partnership",
     excerpt: "The partnership will support more community tournaments and stronger competitive experiences for SCA players.",

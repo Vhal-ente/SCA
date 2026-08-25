@@ -4,11 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
-  { label: "About Us", href: "/landingpage#about" },
   { label: "Tournaments", href: "/tournaments/tournamentlist", internal: true },
   { label: "Leagues", href: "/leagues/leaguelist", internal: true },
-  { label: "Games", href: "/landingpage#games" },
-  { label: "Partners", href: "/landingpage#partners" },
+  { label: "Recruitment", href: "/recruitment", internal: true },
   { label: "News", href: "/news", internal: true },
   { label: "Shogun Clan", href: "/shogun", internal: true },
   { label: "Community", href: "/community", internal: true },

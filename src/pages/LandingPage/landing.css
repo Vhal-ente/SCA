@@ -18,3 +18,9 @@ h2{margin:0;font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;letter-spacing:-.0
 /* Keep the hero actions above the intentionally overlapping statistics panel. */
 .hero-content{position:relative;z-index:4;padding-bottom:72px}
 .stats{z-index:3}
+
+/* Give the full hero copy and actions their own vertical space before the stats overlap. */
+.hero{height:auto;min-height:clamp(820px,100vh,980px);padding:120px 0 130px}
+.hero-content{padding-top:40px;padding-bottom:0}
+@media(max-width:767px){.hero{height:auto;min-height:760px;padding:110px 0 105px}.hero-content{padding-top:20px}}
+@media(max-width:430px){.hero{height:auto;min-height:780px;padding:100px 0 90px}}

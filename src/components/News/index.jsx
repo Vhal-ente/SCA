@@ -6,7 +6,7 @@ export function NewsCard({ article }) {
 }
 
 export function FeaturedArticle({ article }) {
-  return <article className="featured-article"><div className="featured-image"><img src={article.image} alt="Path of Legends tournament arena"/></div><div className="featured-copy"><span className="news-category">{article.category}</span><h2>{article.title}</h2><p>{article.excerpt}</p><time><CalendarDays/>{article.date}</time><Link className="button" to={`/news/${article.slug}`}>Read article <ArrowRight/></Link></div></article>;
+  return <article className="featured-article"><div className="featured-image"><img src={article.image} alt=""/></div><div className="featured-copy"><span className="news-category">{article.category}</span><h2>{article.title}</h2><p>{article.excerpt}</p><time><CalendarDays/>{article.date}</time><Link className="button" to={`/news/${article.slug}`}>Read article <ArrowRight/></Link></div></article>;
 }
 
 export function CategoryFilter({ categories, active, onChange }) {
