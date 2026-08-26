@@ -1,135 +1,21 @@
-import React from "react";
+import { useMemo, useState } from "react";
+import { Search } from "lucide-react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
-import Button from "../Button";
-import TournamentCard from "../InfoCard/TournamnetCard";
-import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import { TournamentListingCard } from "../CompetitionCards";
+import "../CompetitionCards/listing.css";
 
 const tournaments = [
-  {
-    name: "PUBG tournament by Red Bull",
-    image: "/assets/tournament_images/battlegrounds.png",
-    date: "Jun 26 - Jun 27, 2020",
-    participants: 128,
-    subtitle: "Clan Senso",
-  },
-  {
-    name: "Apex Legends tournament by Xbox",
-    image: "/assets/tournament_images/apex.png",
-    date: "Jun 27 - Jun 29, 2020",
-    participants: 64,
-    subtitle: "Clan Senso",
-  },
-  {
-    name: "Rocket League Finals",
-    image: "/assets/tournament_images/rocket.png",
-    date: "Jul 01 - Jul 02, 2020",
-    participants: 1024,
-    subtitle: "Clan Senso",
-  },
-  {
-    name: "Call of duty:  Warzone by HyperX",
-    image: "/assets/warzone_image.png",
-    date: "Jul 01 - Jul 03, 2025",
-    participants: 256,
-    subtitle: "Path of Legends Gaming Event",
-  },
-  {
-    name: "PUBG Global Championship",
-    image: "/assets/PUBG_Global_Championship.png",
-    date: "Jun 24 - Jun 26, 2025",
-    participants: 1024,
-    subtitle: "Academius Games",
-  },
-  {
-    name: "PUBG Global Championship",
-    image: "/assets/PUBG_Global_Championship2.png",
-    date: "Jun 24 - Jun 26, 2025",
-    participants: 1024,
-    subtitle: "Clan Senso",
-  },
+  { name: "PUBG Tournament by Red Bull", slug: "pubg-red-bull", entryFee: 1500, image: "/assets/tournament_images/battlegrounds.png", date: "Sep 26 – Sep 27, 2026", participants: 128, organizer: "Clan Sense", status: "Upcoming", prize: "$5,000" },
+  { name: "Apex Legends Open", slug: "apex-legends-open", image: "/assets/tournament_images/apex.png", date: "Sep 27 – Sep 29, 2026", participants: 64, organizer: "SCA Open Series", status: "Live", prize: "$3,500" },
+  { name: "Rocket League Finals", slug: "rocket-league-finals", image: "/assets/tournament_images/rocket.png", date: "Oct 01 – Oct 02, 2026", participants: 128, organizer: "Academius Games", status: "Ended", prize: "$4,000" },
+  { name: "Call of Duty: Warzone by HyperX", slug: "warzone-hyperx-2026", entryFee: 2500, image: "/assets/warzone_image.png", date: "Aug 01 – Aug 05, 2026", participants: 256, organizer: "Path of Legends", status: "Upcoming", prize: "$10,000" },
+  { name: "PUBG Global Championship", slug: "pubg-global-championship", image: "/assets/PUBG_Global_Championship.png", date: "Oct 24 – Oct 26, 2026", participants: 1024, organizer: "Academius Games", status: "Registered", prize: "$7,500" },
+  { name: "SCA Mobile Masters", slug: "sca-mobile-masters", entryFee: 0, image: "/assets/PUBG_Global_Championship2.png", date: "Aug 15 – Aug 20, 2026", participants: 64, organizer: "Clan Sense", status: "Upcoming", prize: "$5,000" },
 ];
 
 export default function TournamentList() {
-  return (
-    <div className="min-w-full">
-      <div className="min-h-[75vh] bg-[url('/assets/tournament_images/tournament_list_img.png')] bg-contain md:bg-cover bg-top relative px-6 py-10">
-        {/* AN OVERLAY */}
-        <div className="absolute inset-0 bg-black/20 z-30"></div>
-        {/* THE BLUR */}
-        <div className="absolute inset-0 bg-black/0 bg-gradient-to-b from-[#000000] to-[#D9D9D900] max-h-30 z-40"></div>
-
-        <div className="relative z-50">
-          <div className="max-w-full bg-transparent mx-auto">
-            <Navbar />
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-background text-general px-10 py-20">
-        <div className="text-center text-white">
-          <h2 className="text-3xl md:text-5xl text-center mb-12">
-            TOURNAMENTS
-          </h2>
-          <div className="relative lg:w-1/2 mx-auto mb-16">
-            <input
-              type="text"
-              placeholder="SEARCH"
-              className="pl-4 pr-10 py-2 border rounded-full w-full"
-            />
-            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
-          </div>
-        </div>
-
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
-          {tournaments.map((tournament, index) => (
-            <TournamentCard key={index} tournament={tournament} />
-            
-          ))}
-        </div> */}
-
-<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 items-center justify-center">
-          {tournaments.map((tournament, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center border border-primary rounded-3xl overflow-hidden gap-2"
-            >
-              <img
-                src={tournament.image}
-                alt={tournament.name}
-                className="h-3/5 w-full object-cover"
-              />
-              <div className="flex flex-col items-start p-4 gap-2 w-full">
-                <h3 className="font-bold text-sm">{tournament.name}</h3>
-                <p className="text-sm">{tournament.date}</p>
-                <div className="flex justify-between items-center mt-4 w-full">
-                  <p className="text-sm">
-                    <span className="font-bold">{tournament.participants}</span>{" "}
-                    Participants
-                  </p>
-
-                 <Button
-                     text="Join"
-                     size="small"
-                     fontSize="text-sm"
-                     iconLeft={
-                       <img
-                         src="/assets/icons/shield_check.svg"
-                         alt="Join Icon"
-                         className="w-5 h-5"
-                       />
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="max-w-full">
-        <Footer />
-      </div>
-    </div>
-  );
+  const [query, setQuery] = useState("");
+  const filtered = useMemo(() => tournaments.filter(item => `${item.name} ${item.organizer}`.toLowerCase().includes(query.toLowerCase())), [query]);
+  return <div className="competition-list-page"><Navbar/><header className="competition-list-hero tournament-list-hero"><div className="container"><p className="eyebrow">Enter the arena</p><h1>Tournaments</h1><p>Discover live and upcoming SCA competitions, find your game, and secure your place in the bracket.</p></div></header><main className="competition-list-main"><div className="container"><div className="listing-toolbar"><div><p className="eyebrow">Competitive events</p><h2>Find your next tournament</h2></div><label className="listing-search"><span className="sr-only">Search tournaments</span><Search/><input value={query} onChange={event => setQuery(event.target.value)} type="search" placeholder="Search tournaments"/></label></div>{filtered.length ? <div className="listing-tournament-grid">{filtered.map(item => <TournamentListingCard key={item.name} tournament={item}/>)}</div> : <p className="listing-empty">No tournaments match your search.</p>}</div></main><Footer/></div>;
 }

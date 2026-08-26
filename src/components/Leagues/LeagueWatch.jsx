@@ -1,70 +1,14 @@
-import DashedLeagueBorderCard from "../InfoCard/DashedLeagueBorderCard";
-import PictureClipCard from "../InfoCard/PictureClipCard";
+import { useState } from "react";
+import { ArrowUpRight, Check, Copy, Eye, Play, Radio } from "lucide-react";
+import { Link } from "react-router-dom";
 import LeaguesNav from "../Navbar/LeaguesNav";
+import "./league-detail.css";
+
+const streamLinks = [{name:"YouTube",url:"https://www.youtube.com/@shortcircuitarena",status:"Official league broadcast"},{name:"Twitch",url:"https://www.twitch.tv/shortcircuitarena",status:"Official league stream"}];
+const clips = [{title:"Matchweek 3 highlights",image:"/assets/ancient_greek.png",views:"1.8K"},{title:"Shogun Clan vs F4 Sides",image:"/assets/path_of_legends.png",views:"960",teams:[{name:"Shogun Clan",slug:"shogun-clan"},{name:"F4 Sides",slug:"f4-sides"}]},{title:"Best plays of the week",image:"/assets/PUBG_Global_Championship.png",views:"740"}];
 
 export default function LeagueWatch() {
-  const clips = [
-    {
-      id: 1,
-      image: "//assets/ancient_greek.png",
-      imageTitle: "/assets/path_of_legends.png",
-      title: "PATH OF LEGENDS JANUARY 2024",
-      uploader: "Manjo",
-      views: 860,
-      date: "2024 JAN",
-      since: "1 months ago",
-    },
-    {
-      id: 2,
-      image: "/assets/ancient_greek.png",
-      imageTitle: "/assets/path_of_legends.png",
-
-      title: "PATH OF LEGENDS JANUARY 2024",
-      uploader: "Manjo",
-      views: 860,
-      date: "2024 JAN",
-      since: "1 months ago",
-    },
-    {
-      id: 3,
-      image: "/assets/ancient_greek.png",
-      imageTitle: "/assets/path_of_legends.png",
-
-      title: "PATH OF LEGENDS JANUARY 2024",
-      uploader: "Manjo",
-      views: 860,
-      date: "2024 JAN",
-      since: "1 months ago",
-    },
-  ];
-  return (
-    <div>
-      <div className="flex flex-col items-center justify-center gap-6 mb-10">
-        <div>
-          <LeaguesNav />
-        </div>
-      </div>
-
-      <div>
-        <h2 className="text-primary text-3xl mb-6">PARTICIPANT STREAMS</h2>
-        <p className="text-2xl mb-6">
-          Participants streaming on Twitch or YouTube link will automatically
-          get added.
-        </p>
-
-        <div className="mb-12">
-          <DashedLeagueBorderCard />
-        </div>
-
-        <div className="mb-10">
-          <h2 className="text-primary text-3xl mb-6">TOURNAMENT CLIPS</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {clips.map((clip) => (
-              <PictureClipCard key={clip.id} {...clip} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  const [copied,setCopied] = useState("");
+  const copyStream = async (stream) => { try { await navigator.clipboard.writeText(stream.url); setCopied(stream.name); window.setTimeout(() => setCopied(""),1800); } catch { setCopied(""); } };
+  return <main className="league-detail"><div className="league-detail-container"><LeaguesNav/><header className="league-header"><div><p className="eyebrow">Broadcast centre</p><h1>Watch the league</h1><p>Follow official Path of Legends matchweek broadcasts, replays, and season highlights.</p></div><span className="league-badge"><Radio/>Next broadcast Saturday</span></header><section className="league-featured-stream"><div><span className="league-live-label">Next broadcast</span><h2>Path of Legends · Matchweek 4</h2><p>Four fixtures, live analysis, and the complete matchweek recap from the SCA broadcast team.</p><time>Saturday · 18:00 WAT</time></div><button type="button" aria-label="Play upcoming broadcast"><Play/></button></section><section className="league-section league-stream-section"><div className="league-section-heading"><div><p className="eyebrow">Official channels</p><h2>Participant streams</h2><p>Copy an approved stream link and share the league broadcast with your community.</p></div></div><div className="league-stream-links">{streamLinks.map(stream => <article key={stream.name}><div><strong>{stream.name}</strong><span>{stream.status}</span><a href={stream.url} target="_blank" rel="noreferrer">{stream.url}</a></div><button type="button" onClick={() => copyStream(stream)} aria-label={`Copy ${stream.name} stream link`}>{copied===stream.name?<Check/>:<Copy/>}<span>{copied===stream.name?"Copied":"Copy link"}</span></button></article>)}</div><p className="sr-only" aria-live="polite">{copied?`${copied} stream link copied`:""}</p></section><section className="league-section"><div className="league-section-heading"><div><p className="eyebrow">On demand</p><h2>League highlights</h2></div></div><div className="league-clip-grid">{clips.map(({title,image,views,teams}) => <article key={title}><div><img src={image} alt=""/><span><Play/></span></div><section><h3>{title}</h3>{teams&&<div className="clip-team-links">{teams.map(team=><Link key={team.slug} to={`/teams/${team.slug}`}>{team.name}</Link>)}</div>}<p><Eye/>{views} views</p><a href="#watch">Watch replay <ArrowUpRight/></a></section></article>)}</div></section></div></main>;
 }

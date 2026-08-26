@@ -1,133 +1,36 @@
-import Button from "../Button";
+import { Check, Clock3, Gamepad2, Headphones, Medal, ShieldCheck, Trophy, Users } from "lucide-react";
+import { createElement } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import TournamentsNav from "../Navbar/TournamentsNav";
-import HeaderInfoCards from "../InfoCard/HeaderInfoCards";
-import AsideInfoCards from "../InfoCard/AsideInfoCards";
-import Details from "../Details/index.jsx";
-import Admins from "../Admins";
-import DetailsParagraph from "../Details/DetailsParagraph";
+import "./tournament-overview.css";
+
+const facts = [[Gamepad2, "Game", "COD Mobile"], [Trophy, "Format", "Battle Royale TPP"], [Users, "Mode", "Solo"], [Medal, "Scoring", "BR Positions"]];
+const timeline = [["Signup deadline", "22 Dec · 20:55 WAT"], ["Check-in", "22 Dec · 20:00–20:55 WAT"], ["Tournament start", "22 Dec · 21:00 WAT"]];
+const prizes = [["1st place", "3,280 CP"], ["2nd place", "2,640 CP"], ["3rd place", "1,760 CP"], ["4th place", "1,300 CP"]];
+const detailSections = [
+  { title: "How to sign up", items: ["Join the tournament before the signup deadline.", "Check in during the published check-in period.", "Match and lobby details are generated at the tournament start time."] },
+  { title: "Requirements", items: ["All players must currently reside in Nigeria.", "If fewer than three participants check in by the start time, the tournament may be cancelled."] },
+  { title: "Quick rules", items: ["Three matches are played consecutively, with 15 minutes between matches.", "Lobby ID and password are published on the match page.", "Mode: Classic Solo – TPP.", "No specific room slot is required."] },
+  { title: "Joining the room", items: ["Open the match page at the scheduled start time.", "Use the invite link or enter the published Match ID and password.", "Wait for the tournament administrator to start the room."] },
+];
+const admins = [["Mightyness", "/assets/admins/mightyness.svg"], ["Von", "/assets/admins/von.svg"], ["Manja", "/assets/admins/manja.svg"], ["Misha", "/assets/admins/misha.svg"]];
+
+function FactCard({ icon, label, value }) { return <div className="tournament-fact">{createElement(icon)}<span>{label}</span><strong>{value}</strong></div>; }
 
 export default function TournOverview() {
-  const detailsProps = {
-    sectionTitle: "DETAILS",
-    subsections: [
-      {
-        subheading: "HOW TO SIGN UP",
-        items: [
-          "Join the tournament before the Signup Deadline",
-          "Check in during the Check-in Period",
-          "Matches and lobby details will be generated at the tournament Start Date",
-        ],
-      },
-      {
-        subheading: "REQUIREMENTS",
-        items: [
-          "All players must reside/currently live in Nigeria.",
-          "If fewer than 3 participants check in by the start time, the tournament will be cancelled.",
-        ],
-      },
-    ],
-  };
-
-  const quickRulesProps = {
-    sectionTitle: "QUICK RULES",
-    subsections: [
-      {
-        subheading: "INFO",
-        items: [
-          "3 matches are played one after the other.",
-          "Players have 15 minutes between each match.",
-          "Lobby ID and password: Posted on match page.",
-          "Mode: Classic Solo–TPP",
-        ],
-      },
-      {
-        subheading: "HOW TO GET ROOM DETAILS",
-        items: [
-          "Refresh the tournament page at the start time.",
-          "If 'N/A' shows, wait and refresh until room is created.",
-          "'Access restricted' means you're not part of the match.",
-          "No specific slot is required.",
-        ],
-      },
-      {
-        subheading: "HOW TO JOIN A ROOM",
-        items: [
-          "Go to the match page on SCA website/app.",
-          "Click on the 'Invite link' to join CODM room.",
-          "For private rooms, tap the house icon and enter Match ID and Password.",
-          "Wait for admin to start.",
-        ],
-      },
-    ],
-  };
-
-  const reportResultsProps = {
-    sectionTitle: "REPORT RESULTS",
-    content: [
-      {
-        subheading: null,
-        paragraphs: [
-          'Each player must take a screenshot at the end-of-game displaying their kill score and placement and submit it on the match page, via the "Enter Result" button which will appear once the room is started. You must report scores before the next room starts.',
-        ],
-      },
-    ],
-  };
-
-  const adminsProps = {
-    sectionTitle: "ADMINS",
-    admins: [
-      { name: "Mightyness", image: "/assets/admins/mightyness.svg" },
-      { name: "Von", image: "/assets/admins/von.svg" },
-      { name: "Manja", image: "/assets/admins/manja.svg" },
-      { name: "Misha", image: "/assets/admins/misha.svg" },
-    ],
-  };
-  return (
-    <div>
-      <div className="flex flex-col items-center justify-center gap-6 mb-12">
-        <div>
-          <TournamentsNav />
-        </div>
-
-        <div className="max-w-4xl flex flex-col items-center justify-center gap-6 md:gap-8 text-center">
-          <h1 className="text-2xl md:text-4xl font-bold text-white">
-            Call Of Duty: Warzone By HyperX
-          </h1>
-          <p className="text-lg md:text-2xl mb-2">
-            Description of the tournament will contestants battle it out each
-            month having it's own victor. Who dares to walk the path of legends?
-          </p>
-
-          <div>
-            <Button
-              text="Join"
-              iconLeft={
-                <img
-                  src="/assets/icons/shield_check.svg"
-                  alt="icon"
-                  className="w-6 h-6"
-                />
-              }
-            />
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <HeaderInfoCards />
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-16 max-w-7xl mx-auto py-8">
-        <aside className="w-full md:w-1/4 pt-8">
-          <AsideInfoCards />
-        </aside>
-        <div className="md:w-3/4 flex flex-col gap-2 ">
-          <Details {...detailsProps} />
-          <Details {...quickRulesProps} />
-          <DetailsParagraph {...reportResultsProps} />
-          <Admins {...adminsProps} />
-        </div>
-      </div>
-    </div>
-  );
+  const[searchParams]=useSearchParams();const tournamentId=searchParams.get("tournament")||"warzone-hyperx-2026";const tournamentStates={"warzone-hyperx-2026":["Call of Duty: Warzone by HyperX","Upcoming"],"sca-mobile-masters":["SCA Mobile Masters","Upcoming"],"pubg-red-bull":["PUBG Tournament by Red Bull","Upcoming"],"apex-legends-open":["Apex Legends Open","Live"],"rocket-league-finals":["Rocket League Finals","Ended"],"pubg-global-championship":["PUBG Global Championship","Registered"]};const[name,status]=tournamentStates[tournamentId]||tournamentStates["warzone-hyperx-2026"];const isFree=tournamentId==="sca-mobile-masters";const canRegister=status==="Upcoming";const joinPath=`/tournamentspage/join?tournament=${tournamentId}`;
+  return <main className="tournament-overview"><div className="tournament-overview-container">
+    <TournamentsNav/>
+    <header className="tournament-title-block"><div><p className="eyebrow">Featured tournament</p><h1>{name}</h1><p>{isFree?"Mobile squads compete for the SCA Masters title in a free-entry tournament built for emerging teams.":"Contestants battle through a competitive series where every placement and result matters. Who will rise and claim the arena?"}</p></div><div className="tournament-title-actions"><span className="live-pill">{status}</span>{canRegister?<Link className="button" to={joinPath}><ShieldCheck/>Join tournament</Link>:<span className="button button-disabled" aria-disabled="true">{status==="Registered"?"Already registered":status==="Live"?"Registration closed":"Tournament ended"}</span>}</div></header>
+    <section className="tournament-facts" aria-label="Tournament information">{facts.map(([Icon,label,value]) => <FactCard key={label} icon={Icon} label={label} value={value}/>)}</section>
+    <div className="tournament-content-grid"><aside className="tournament-sidebar">
+      <section className="tournament-panel registration-panel"><p className="panel-label">Registration</p><strong>{status==="Registered"?"Registration confirmed":canRegister?(isFree?"Free entry":"Paid entry"):"Registration closed"}</strong><span>{status==="Registered"?"You are already entered in this tournament.":canRegister?(isFree?"No payment is required. Complete the player entry form before check-in begins.":"Registration closes before check-in begins. Payment is completed securely with Paystack."):`This tournament is ${status.toLowerCase()} and no longer accepts entries.`}</span>{canRegister&&<Link className="button button-full" to={joinPath}>Join now</Link>}</section>
+      <section className="tournament-panel"><div className="panel-heading"><Clock3/><h2>Timeline</h2></div><div className="timeline-list">{timeline.map(([label,value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div></section>
+      <section className="tournament-panel"><div className="panel-heading"><Trophy/><h2>Prizes</h2></div><div className="prize-list">{prizes.map(([place,value],index) => <div key={place}><span className={`prize-rank rank-${index + 1}`}>{index + 1}</span><span>{place}</span><strong>{value}</strong></div>)}</div></section>
+      <section className="tournament-panel support-panel"><Headphones/><h2>Need support?</h2><p>Report a tournament issue or contact the assigned administrator.</p><Link className="text-link" to="/community#report-issue">Get tournament help</Link></section>
+    </aside><div className="tournament-details">
+      <section className="overview-section"><div className="overview-section-heading"><p className="eyebrow">Before you compete</p><h2>Tournament details</h2></div><div className="detail-grid">{detailSections.map(section => <article className="detail-card" key={section.title}><h3>{section.title}</h3><ul>{section.items.map(item => <li key={item}><Check/>{item}</li>)}</ul></article>)}</div></section>
+      <section className="overview-section"><div className="overview-section-heading"><p className="eyebrow">Tournament team</p><h2>Administrators</h2></div><div className="admin-grid">{admins.map(([name,image]) => <article key={name}><img src={image} alt={`Tournament administrator ${name}`}/><div><strong>{name}</strong><span>Administrator</span></div></article>)}</div></section>
+    </div></div>
+  </div></main>;
 }

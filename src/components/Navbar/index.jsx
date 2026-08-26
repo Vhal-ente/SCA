@@ -1,140 +1,39 @@
-import { useState, useEffect } from "react";
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-} from "@heroicons/react/20/solid";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import ThemeToggle from "@/components/ThemeToggle";
+
+const navItems = [
+  { label: "Tournaments", href: "/tournaments/tournamentlist", internal: true },
+  { label: "Leagues", href: "/leagues/leaguelist", internal: true },
+  { label: "Recruitment", href: "/recruitment", internal: true },
+  { label: "News", href: "/news", internal: true },
+  { label: "Shogun Clan", href: "/shogun", internal: true },
+  { label: "Community", href: "/community", internal: true },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const navItems = [
-    { label: "ABOUT US", href: "/#about" },
-    { label: "WORK WITH US", href: "/#workwithus" },
-    { label: "TOURNAMENTS", href: "/#tournaments" },
-    { label: "LEAGUES", href: "/#leagues" },
-    { label: "SHOGUN", href: "/shogun" },
-  ];
-
-  const hideAvatarOnPaths = ["/login", "/signup"];
-
-  const handleUserClick = () => {
-    navigate("/userpage/userpageoverview");
-  };
+  const landingPath = location.pathname === "/" ? "/" : "/landingpage";
 
   useEffect(() => {
-  const handleResize = () => {
-    if (window.innerWidth >= 1024) {
-      setIsOpen(false);
-    }
-  };
+    const onScroll = () => setScrolled(window.scrollY > 18);
+    const onResize = () => window.innerWidth >= 1024 && setIsOpen(false);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onResize); };
+  }, []);
 
-  window.addEventListener("resize", handleResize);
-
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
-  return (
-    <nav className="w-full text-white px-4 py-3 flex items-center justify-between relative z-30">
-      {/* Logo */}
-      <NavLink to="/" className="w-24 sm:w-28 lg:w-32">
-        <img src="/assets/sca_logo.png" alt="Logo" className="w-full" />
-      </NavLink>
-
-      {/* Desktop */}
-      <div className="hidden lg:flex items-center gap-6">
-        <ul className="flex gap-6 text-sm">
-          {navItems.map((item) => (
-            <li key={item.label}>
-              <a href={item.href} className="hover:text-primary transition">
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Avatar */}
-        {!hideAvatarOnPaths.includes(location.pathname) && (
-          <div className="w-12 h-12 cursor-pointer" onClick={handleUserClick}>
-            {isAuthenticated ? (
-              <img
-                src="/assets/admins/mightyness.svg"
-                alt="User Avatar"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <img
-                src="/assets/admins/default_hexagon.svg"
-                alt="default"
-                className="w-full h-full"
-              />
-            )}
-          </div>
-        )}
+  return <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
+    <nav className="site-nav" aria-label="Main navigation">
+      <Link to={landingPath} className="brand-link" aria-label="SCA home"><img src="/assets/sca_logo.png" alt="Short Circuit Arena" /></Link>
+      <div className="desktop-nav">{navItems.map(item => item.internal ? <Link key={item.label} to={item.href}>{item.label}</Link> : <a key={item.label} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined}>{item.label}</a>)}</div>
+      <div className="nav-actions"><ThemeToggle/><Link className="nav-login" to="/login">Log in</Link><Link className="button button-small" to="/signup">Sign up</Link>
+        <button className="menu-toggle" type="button" onClick={() => setIsOpen((open) => !open)} aria-expanded={isOpen} aria-controls="mobile-menu" aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}>{isOpen ? <X/> : <Menu/>}</button>
       </div>
-
-      {/* Mobile Controls */}
-      <div className="flex items-center gap-3 lg:hidden">
-        {!hideAvatarOnPaths.includes(location.pathname) && (
-          <div className="w-9 h-9" onClick={handleUserClick}>
-            {isAuthenticated ? (
-              <img
-                src="/assets/admins/mightyness.svg"
-                alt="User Avatar"
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <img src="/assets/admins/default_hexagon.svg" alt="default" />
-            )}
-          </div>
-        )}
-
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? (
-            <XMarkIcon className="h-7 w-7" />
-          ) : (
-            <Bars3Icon className="h-7 w-7" />
-          )}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-    <div
-  className={`absolute left-0 top-full w-full bg-black/80 backdrop-blur-md transition-all duration-300 overflow-hidden lg:hidden ${
-    isOpen ? "max-h-[500px] py-4" : "max-h-0"
-  }`}
->
-        <div className="px-4 flex flex-col gap-4">
-          <ul className="flex flex-col gap-4 text-sm">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block py-2 border-b border-gray-700"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Mobile Search */}
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="SEARCH"
-              className="w-full px-4 py-2 rounded-lg text-white text-sm border bg-transparent focus:outline-none"
-            />
-            <MagnifyingGlassIcon className="h-5 w-5 text-gray-400 absolute right-3 top-2" />
-          </div>
-        </div>
-      </div>
+      <div id="mobile-menu" className={`mobile-menu ${isOpen ? "is-open" : ""}`}>{navItems.map(item => item.internal ? <Link key={item.label} to={item.href} onClick={() => setIsOpen(false)}>{item.label}</Link> : <a key={item.label} href={item.href} target={item.external ? "_blank" : undefined} rel={item.external ? "noreferrer" : undefined} onClick={() => setIsOpen(false)}>{item.label}</a>)}<div className="mobile-auth"><Link to="/login">Log in</Link><Link to="/signup">Sign up</Link></div></div>
     </nav>
-  );
+  </header>;
 }
