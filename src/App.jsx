@@ -51,6 +51,13 @@ import PublicPlayerPage from "./pages/PublicPlayerPage";
 import TeamPreviewPage from "./pages/TeamPreviewPage";
 import TournamentJoinPage from "./pages/TournamentJoinPage";
 import LeagueJoinPage from "./pages/LeagueJoinPage";
+import RecruitmentPage from "./pages/RecruitmentPage";
+import RecruitmentDetailPage from "./pages/RecruitmentDetailPage";
+import { AdminRecruitment, DashboardApplications, DashboardRecruitmentCreate, DashboardTeamRecruitment } from "./pages/RecruitmentDashboardPages";
+import { DashboardRefundDetail, DashboardRefunds } from "./pages/DashboardRefunds";
+import DashboardAchievements from "./pages/DashboardAchievements";
+import DashboardCoaching from "./pages/DashboardCoaching";
+import CoachDirectoryPage from "./pages/CoachDirectoryPage";
 
 export default function App() {
   return (
@@ -75,22 +82,34 @@ export default function App() {
           <Route path="sponsor-program" element={<SponsorProgramPage />} />
           <Route path="press-kit" element={<PressKitPage />} />
           <Route path="players/:username" element={<PublicPlayerPage />} />
+          <Route path="coaches" element={<CoachDirectoryPage />} />
           <Route path="teams/:teamSlug" element={<TeamPreviewPage />} />
+          <Route path="recruitment" element={<RecruitmentPage />} />
+          <Route path="recruitment/:id" element={<RecruitmentDetailPage />} />
           <Route path="tournamentspage/join" element={<ProtectedRoute><TournamentJoinPage /></ProtectedRoute>} />
           <Route path="leaguespage/join" element={<ProtectedRoute><LeagueJoinPage /></ProtectedRoute>} />
           <Route element={<ProtectedRoute><DashboardLayout /></ProtectedRoute>}>
             <Route path="dashboard" element={<DashboardOverview />} />
             <Route path="dashboard/profile" element={<DashboardProfile />} />
+            <Route path="dashboard/coaching" element={<DashboardCoaching />} />
+            <Route path="dashboard/achievements" element={<DashboardAchievements />} />
             <Route path="dashboard/teams" element={<DashboardTeams />} />
             <Route path="dashboard/teams/create" element={<DashboardCreateTeam />} />
             <Route path="dashboard/teams/:teamId" element={<DashboardTeamDetail />} />
+            <Route path="dashboard/teams/:teamId/recruitment" element={<DashboardTeamRecruitment />} />
+            <Route path="dashboard/teams/:teamId/recruitment/create" element={<DashboardRecruitmentCreate />} />
+            <Route path="dashboard/teams/:teamId/recruitment/:postId/edit" element={<DashboardRecruitmentCreate />} />
+            <Route path="dashboard/applications" element={<DashboardApplications />} />
             <Route path="dashboard/tournaments" element={<DashboardTournaments />} />
             <Route path="dashboard/leagues" element={<DashboardLeagues />} />
             <Route path="dashboard/matches" element={<DashboardMatches />} />
             <Route path="dashboard/matches/:matchId" element={<DashboardMatchDetail />} />
             <Route path="dashboard/rewards" element={<DashboardRewards />} />
+            <Route path="dashboard/refunds" element={<DashboardRefunds />} />
+            <Route path="dashboard/refunds/:id" element={<DashboardRefundDetail />} />
             <Route path="dashboard/notifications" element={<DashboardNotifications />} />
             <Route path="dashboard/settings" element={<DashboardSettings />} />
+            <Route path="admin/recruitment" element={<AdminRecruitment />} />
           </Route>
 
           {/* <Route path="/" element={<Navigate to="/login" replace />} /> */}
