@@ -28,13 +28,17 @@ export function AuthProvider({ children }) {
     return user;
   }, []);
 
+  const updateUser = useCallback((changes) => {
+    setUser((current) => (current ? { ...current, ...changes } : current));
+  }, []);
+
   const logout = useCallback(async () => {
     try { await api.post("/auth/logout"); } finally { setUser(null); }
   }, []);
 
   const value = useMemo(
-    () => ({ user, loading, login, signup, logout, isAuthenticated: !!user }),
-    [user, loading, login, signup, logout]
+    () => ({ user, loading, login, signup, logout, updateUser, isAuthenticated: !!user }),
+    [user, loading, login, signup, logout, updateUser]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
