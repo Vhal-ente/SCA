@@ -46,7 +46,9 @@ import CareerDetailPage from "./pages/CareerDetailPage";
 import SponsorProgramPage from "./pages/SponsorProgramPage";
 import PressKitPage from "./pages/PressKitPage";
 import DashboardLayout from "./components/DashboardLayout";
-import { DashboardCreateTeam, DashboardLeagues, DashboardMatchDetail, DashboardMatches, DashboardNotifications, DashboardOverview, DashboardProfile, DashboardRewards, DashboardSettings, DashboardTeamDetail, DashboardTeams, DashboardTournaments } from "./pages/DashboardPages";
+import { DashboardCreateTeam, DashboardLeagues, DashboardMatchDetail, DashboardMatches, DashboardNotifications, DashboardOverview, DashboardRewards, DashboardTeamDetail, DashboardTeams, DashboardTournaments } from "./pages/DashboardPages";
+import DashboardProfile from "./pages/DashboardProfilePage";
+import DashboardSettings from "./pages/DashboardSettingsPage";
 import PublicPlayerPage from "./pages/PublicPlayerPage";
 import TeamPreviewPage from "./pages/TeamPreviewPage";
 import TournamentJoinPage from "./pages/TournamentJoinPage";
@@ -58,6 +60,11 @@ import { DashboardRefundDetail, DashboardRefunds } from "./pages/DashboardRefund
 import DashboardAchievements from "./pages/DashboardAchievements";
 import DashboardCoaching from "./pages/DashboardCoaching";
 import CoachDirectoryPage from "./pages/CoachDirectoryPage";
+import LoadoutsPage from "./pages/LoadoutsPage";
+import LoadoutDetailPage from "./pages/LoadoutDetailPage";
+import DashboardLoadouts from "./pages/DashboardLoadouts";
+import LoadoutEditorPage from "./pages/LoadoutEditorPage";
+import AdminLoadoutsPage from "./pages/AdminLoadoutsPage";
 
 export default function App() {
   return (
@@ -83,6 +90,8 @@ export default function App() {
           <Route path="press-kit" element={<PressKitPage />} />
           <Route path="players/:username" element={<PublicPlayerPage />} />
           <Route path="coaches" element={<CoachDirectoryPage />} />
+          <Route path="loadouts" element={<LoadoutsPage />} />
+          <Route path="loadouts/:slug" element={<LoadoutDetailPage />} />
           <Route path="teams/:teamSlug" element={<TeamPreviewPage />} />
           <Route path="recruitment" element={<RecruitmentPage />} />
           <Route path="recruitment/:id" element={<RecruitmentDetailPage />} />
@@ -94,6 +103,9 @@ export default function App() {
             <Route path="dashboard/coaching" element={<DashboardCoaching />} />
             <Route path="dashboard/achievements" element={<DashboardAchievements />} />
             <Route path="dashboard/teams" element={<DashboardTeams />} />
+            <Route path="dashboard/loadouts" element={<DashboardLoadouts />} />
+            <Route path="dashboard/loadouts/create" element={<LoadoutEditorPage />} />
+            <Route path="dashboard/loadouts/:id/edit" element={<LoadoutEditorPage />} />
             <Route path="dashboard/teams/create" element={<DashboardCreateTeam />} />
             <Route path="dashboard/teams/:teamId" element={<DashboardTeamDetail />} />
             <Route path="dashboard/teams/:teamId/recruitment" element={<DashboardTeamRecruitment />} />
@@ -110,6 +122,7 @@ export default function App() {
             <Route path="dashboard/notifications" element={<DashboardNotifications />} />
             <Route path="dashboard/settings" element={<DashboardSettings />} />
             <Route path="admin/recruitment" element={<AdminRecruitment />} />
+            <Route path="admin/loadouts" element={<AdminLoadoutsPage />} />
           </Route>
 
           {/* <Route path="/" element={<Navigate to="/login" replace />} /> */}
