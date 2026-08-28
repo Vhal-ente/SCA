@@ -9,6 +9,8 @@ import {
 import AuthLayout from "./components/AuthLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import LandingPage from "./pages/LandingPage";
 import PageWrapper from "./components/PageWrapper";
 import Overview from "./pages/TournamentsPage/Overview";
@@ -117,6 +119,8 @@ export default function App() {
           <Route element={<AuthLayout />}>
             <Route path="login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="reset-password" element={<ResetPassword />} />
           </Route>
 
           <Route
