@@ -17,7 +17,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const landingPath = location.pathname === "/" ? "/" : "/landingpage";
+  const landingPath = location.pathname === "/" ? "/landingpage" : "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 18);
