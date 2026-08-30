@@ -68,8 +68,7 @@ export default function App() {
         <ScrollManager />
         <Routes>
           {/* Temporary launch page. Restore <LandingPage /> here after launch. */}
-          <Route path="/" element={<ComingSoonPage />} />
-          <Route path="landingpage" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="news/:slug" element={<NewsArticlePage />} />
           <Route path="shogun" element={<ShogunPage />} />
