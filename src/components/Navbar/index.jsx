@@ -7,6 +7,7 @@ const navItems = [
   { label: "Tournaments", href: "/tournaments/tournamentlist", internal: true },
   { label: "Leagues", href: "/leagues/leaguelist", internal: true },
   { label: "Recruitment", href: "/recruitment", internal: true },
+  { label: "Loadouts", href: "/loadouts", internal: true },
   { label: "News", href: "/news", internal: true },
   { label: "Shogun Clan", href: "/shogun", internal: true },
   { label: "Community", href: "/community", internal: true },
