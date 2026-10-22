@@ -1,4 +1,19 @@
 import { Medal } from "lucide-react";
-import { Link } from "react-router-dom";
-const players=[["MightyNess","The Mighty_Ness","/assets/admins/mightyness.svg",1,1,12,42],["Von","VON.exe","/assets/admins/von.svg",2,1,7,35],["Manja","Manja Prime","/assets/admins/manja.svg",3,0,9,31],["Misha","MishaGG","/assets/admins/misha.svg",4,0,5,26],["Kage","Kage Mori","/assets/admins/von.svg",5,0,4,22],["Akuma","Ren Akuma","/assets/admins/manja.svg",6,0,4,19],["Tora","Tora Jin","/assets/admins/mightyness.svg",7,0,3,17],["Rei","Shin Rei","/assets/admins/misha.svg",8,0,2,14]];
-export default function TournamentStandingsTable({compact=false}){return <div className="standings-wrap"><table className="standings-table"><thead><tr><th>Rank</th><th>Player</th><th>Wins</th><th>Kills</th>{!compact&&<th>Points</th>}</tr></thead><tbody>{players.map(([name,username,image,rank,wins,kills,points])=><tr key={username}><td><span className={`standing-rank rank-${rank}`}>{rank<=3?<Medal/>:rank}</span></td><td><Link className="standing-player player-profile-link" to={`/players/${username.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`}><img src={image} alt=""/><div><strong>{name}</strong><span>{username}</span></div></Link></td><td>{wins}</td><td>{kills}</td>{!compact&&<td><strong>{points}</strong></td>}</tr>)}</tbody></table></div>}
+
+const ordinal = place => (place === 1 ? "1st" : place === 2 ? "2nd" : place === 3 ? "3rd" : `${place}th`);
+
+function Entrant({ entrant }) {
+  return <div className="standing-player">{entrant?.logoUrl ? <img src={entrant.logoUrl} alt=""/> : <span className="fixture-initials" aria-hidden="true">{(entrant?.name || "?").slice(0, 2).toUpperCase()}</span>}<div><strong>{entrant?.name || "To be decided"}</strong></div></div>;
+}
+
+// TournamentStandingsTable ranks entrants from verified results: a points
+// table for round robin, finishing places for a knockout bracket.
+export default function TournamentStandingsTable({ standings }) {
+  if (!standings) return <p className="secondary-empty">Loading standings…</p>;
+  if (standings.structure === "round_robin" && standings.table.length) {
+    return <div className="standings-wrap"><table className="standings-table"><thead><tr><th>Rank</th><th>Entrant</th><th>P</th><th>W</th><th>D</th><th>L</th><th>Diff</th><th>Points</th></tr></thead><tbody>{standings.table.map(row => <tr key={row.entrant?.id || row.rank}><td><span className={`standing-rank rank-${row.rank}`}>{row.rank <= 3 ? <Medal/> : row.rank}</span></td><td><Entrant entrant={row.entrant}/></td><td>{row.played}</td><td>{row.won}</td><td>{row.drawn}</td><td>{row.lost}</td><td>{row.goalsFor - row.goalsAgainst}</td><td><strong>{row.points}</strong></td></tr>)}</tbody></table></div>;
+  }
+  const placed = standings.placements.filter(item => item.place > 0).sort((a, b) => a.place - b.place);
+  if (!placed.length) return <p className="secondary-empty">Standings appear once the first results are verified.</p>;
+  return <div className="standings-wrap"><table className="standings-table"><thead><tr><th>Place</th><th>Entrant</th><th>Reached</th></tr></thead><tbody>{placed.map(item => <tr key={item.entrant?.id || `${item.place}-${item.round}`}><td><span className={`standing-rank rank-${item.place}`}>{item.place <= 3 ? <Medal/> : item.place}</span></td><td><Entrant entrant={item.entrant}/></td><td>{item.place === 1 ? "Champion" : item.round || ordinal(item.place)}</td></tr>)}</tbody></table></div>;
+}
