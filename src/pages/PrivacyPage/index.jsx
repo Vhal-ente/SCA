@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LegalDocument from "@/components/LegalDocument";
 import "../TermsPage/terms.css";
 
 const sections = [
@@ -19,5 +20,5 @@ const sections = [
 ];
 
 export default function PrivacyPage() {
-  return <div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Legal</p><h1>Privacy Policy</h1><p className="legal-updated">Last Updated: August 2026</p><p>Short Circuit Arena (“SCA”, “we”, “us”, or “our”) respects your privacy and is committed to handling personal information responsibly.</p><p>This Privacy Policy explains how we collect, use, store, and protect information when you use our website, tournaments, leagues, and related services.</p><strong>Our handling of personal data is intended to comply with the Nigeria Data Protection Act 2023 and other applicable Nigerian data protection requirements.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div>;
+  return <LegalDocument slug="privacy-policy"><div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Legal</p><h1>Privacy Policy</h1><p className="legal-updated">Last Updated: August 2026</p><p>Short Circuit Arena (“SCA”, “we”, “us”, or “our”) respects your privacy and is committed to handling personal information responsibly.</p><p>This Privacy Policy explains how we collect, use, store, and protect information when you use our website, tournaments, leagues, and related services.</p><strong>Our handling of personal data is intended to comply with the Nigeria Data Protection Act 2023 and other applicable Nigerian data protection requirements.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div></LegalDocument>;
 }

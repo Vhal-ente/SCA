@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function CompanyHero({ eyebrow, title, copy, children }) { return <header className="company-hero"><div className="company-container"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p>{copy}</p>{children && <div className="button-row">{children}</div>}</div></header>; }
 
-export function JobCard({ role }) { return <article className="job-card"><span className="sample-label">Sample role profile</span><h3>{role.title}</h3><div className="job-meta"><span><BriefcaseBusiness/>{role.department}</span><span><MapPin/>{role.location}</span><span><Building2/>{role.type}</span></div><p>{role.summary}</p><Link className="text-link" to={`/careers/${role.slug}`}>View role profile <ArrowRight/></Link></article>; }
+export function JobCard({ role, sample = true }) { return <article className="job-card">{sample && <span className="sample-label">Sample role profile</span>}<h3>{role.title}</h3><div className="job-meta"><span><BriefcaseBusiness/>{role.department}</span><span><MapPin/>{role.location}</span><span><Building2/>{role.type}</span></div><p>{role.summary}</p><Link className="text-link" to={`/careers/${role.slug}`}>{sample ? "View role profile" : "View role"} <ArrowRight/></Link></article>; }
 
 export function CareerApplicationForm({ position }) {
   const [sent,setSent] = useState(false);
@@ -27,6 +27,8 @@ export function BrandColorItem({ name, value }) {
 
 export function MediaAssetCard({ name, src }) { return <article className="media-asset-card"><img src={src} alt={name}/><div><h3>{name}</h3><a href={src} download aria-label={`Download ${name}`}><Download/></a></div></article>; }
 
-export function EmptyRoles() { return <div className="empty-roles"><BriefcaseBusiness/><h3>No Open Roles Right Now</h3><p>We currently do not have any open positions. Follow SCA or check back later for future opportunities.</p><a className="button" href="mailto:info@sca.gg?subject=Career interest">Send Your Interest</a></div>; }
+export function EmptyRoles({ message }) { return <div className="empty-roles"><BriefcaseBusiness/><h3>No Open Roles Right Now</h3><p>{message || "We currently do not have any open positions. Follow SCA or check back later for future opportunities."}</p><a className="button" href="mailto:info@sca.gg?subject=Career interest">Send Your Interest</a></div>; }
 
 export function AssetPlaceholder() { return <div className="asset-placeholder"><ImageIcon/><span>Asset unavailable</span></div>; }
+
+export function UnavailablePage({ title }) { return <header className="company-hero"><div className="company-container"><p className="eyebrow">Short Circuit Arena</p><h1>{title}</h1><p>This page is not available right now. Please check back soon.</p></div></header>; }

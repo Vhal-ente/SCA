@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
+import { withCompetition } from "@/lib/competitionPage";
 
+// The tabs keep ?tournament= so every tab shows the same tournament.
 export default function TournamentsNav() {
+  const [searchParams] = useSearchParams();
+  const slug = searchParams.get("tournament");
   const navItems = [
     { name: "Overview", path: "/tournamentspage/overview" },
     { name: "Watch", path: "/tournamentspage/watch" },
@@ -12,12 +16,9 @@ export default function TournamentsNav() {
   return (
     <nav className="tournament-subnav" aria-label="Tournament navigation">
       <ul>
-        {navItems.map((item, index) => (
-          <li key={index}>
-            <NavLink
-              to={item.path}
-              className={({ isActive }) => isActive ? "is-active" : ""}
-            >
+        {navItems.map(item => (
+          <li key={item.path}>
+            <NavLink to={withCompetition(item.path, "tournament", slug)} className={({ isActive }) => isActive ? "is-active" : ""}>
               {item.name}
             </NavLink>
           </li>

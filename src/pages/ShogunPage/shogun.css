@@ -47,3 +47,7 @@
 .achievement-list span{font-size:.76rem;line-height:1.4;letter-spacing:.08em}
 @media(max-width:900px){.achievement-list{width:100%}}
 @media(max-width:600px){.achievement-list{grid-template-columns:1fr}.achievement-list>div{min-height:130px;padding:22px;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;align-items:center;justify-content:initial;gap:2px 16px}.achievement-list svg{grid-row:1/3;width:36px;height:36px;margin:0}.achievement-list strong{font-size:2rem}.achievement-list span{font-size:.7rem}}
+.player-card-initials{width:100%;height:100%;display:grid;place-items:center;font-size:3.4rem;font-weight:900;color:var(--shogun-gold-soft);background:#151515}
+.sponsor-placeholder img{max-width:120px;max-height:48px;object-fit:contain}
+.shogun-empty{color:var(--text-secondary);margin:0}
+.shogun-socials{display:flex;flex-wrap:wrap;gap:18px}.shogun-socials a{color:var(--text-secondary);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-decoration:none}.shogun-socials a:hover{color:var(--shogun-gold-soft)}

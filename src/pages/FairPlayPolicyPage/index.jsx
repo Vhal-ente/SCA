@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LegalDocument from "@/components/LegalDocument";
 import "../TermsPage/terms.css";
 
 const sections = [
@@ -23,5 +24,5 @@ const sections = [
 ];
 
 export default function FairPlayPolicyPage() {
-  return <div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Competition integrity</p><h1>Fair Play Policy</h1><p className="legal-updated">Last Updated: August 2026</p><p>Short Circuit Arena (“SCA”) is committed to providing a fair, competitive, respectful, and enjoyable environment for all players and teams participating in our tournaments and leagues.</p><p>This Fair Play Policy applies to all SCA competitions, including tournaments, leagues, qualifiers, community events, and other competitive activities organized or managed by SCA.</p><strong>By participating in an SCA competition, you agree to follow this policy and any additional rules provided for the specific competition.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div>;
+  return <LegalDocument slug="fair-play-policy"><div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Competition integrity</p><h1>Fair Play Policy</h1><p className="legal-updated">Last Updated: August 2026</p><p>Short Circuit Arena (“SCA”) is committed to providing a fair, competitive, respectful, and enjoyable environment for all players and teams participating in our tournaments and leagues.</p><p>This Fair Play Policy applies to all SCA competitions, including tournaments, leagues, qualifiers, community events, and other competitive activities organized or managed by SCA.</p><strong>By participating in an SCA competition, you agree to follow this policy and any additional rules provided for the specific competition.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div></LegalDocument>;
 }

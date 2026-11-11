@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LegalDocument from "@/components/LegalDocument";
 import "./terms.css";
 
 const sections = [
@@ -21,5 +22,5 @@ const sections = [
 ];
 
 export default function TermsPage() {
-  return <div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Legal</p><h1>Terms of Service</h1><p className="legal-updated">Last Updated: August 2026</p><p>Welcome to Short Circuit Arena (“SCA”, “we”, “us”, or “our”). These Terms of Service govern your access to and use of the SCA website, tournaments, leagues, competitions, community features, and related services.</p><strong>By accessing or using SCA, you agree to these Terms.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div>;
+  return <LegalDocument slug="terms-of-service"><div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Legal</p><h1>Terms of Service</h1><p className="legal-updated">Last Updated: August 2026</p><p>Welcome to Short Circuit Arena (“SCA”, “we”, “us”, or “our”). These Terms of Service govern your access to and use of the SCA website, tournaments, leagues, competitions, community features, and related services.</p><strong>By accessing or using SCA, you agree to these Terms.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div></LegalDocument>;
 }

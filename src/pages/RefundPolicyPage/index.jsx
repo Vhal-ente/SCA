@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LegalDocument from "@/components/LegalDocument";
 import "../TermsPage/terms.css";
 
 const sections = [
@@ -14,5 +15,5 @@ const sections = [
 ];
 
 export default function RefundPolicyPage() {
-  return <div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Legal</p><h1>Refund Policy</h1><p className="legal-updated">Last Updated: August 2026</p><p>This Refund Policy applies to payments made for tournaments, leagues, registrations, and other paid services offered by Short Circuit Arena (“SCA”).</p><strong>Nothing in this policy limits any refund or consumer right available under applicable Nigerian law. The Federal Competition and Consumer Protection Commission states that consumers may have refund rights where services are not provided or where advance bookings are reasonably cancelled, subject to applicable conditions.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div>;
+  return <LegalDocument slug="refund-policy"><div className="legal-page"><Navbar/><main><header className="legal-header"><div className="legal-container"><p className="eyebrow">Legal</p><h1>Refund Policy</h1><p className="legal-updated">Last Updated: August 2026</p><p>This Refund Policy applies to payments made for tournaments, leagues, registrations, and other paid services offered by Short Circuit Arena (“SCA”).</p><strong>Nothing in this policy limits any refund or consumer right available under applicable Nigerian law. The Federal Competition and Consumer Protection Commission states that consumers may have refund rights where services are not provided or where advance bookings are reasonably cancelled, subject to applicable conditions.</strong></div></header><article className="legal-container legal-content">{sections.map(([title, content]) => <section key={title}><h2>{title}</h2>{content.map((item, index) => Array.isArray(item) ? <ul key={index}>{item.map(entry => <li key={entry}>{entry}</li>)}</ul> : <p key={index}>{item}</p>)}</section>)}</article></main><Footer/></div></LegalDocument>;
 }

@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { ArrowUpRight, Check, Copy, Eye, Play, Radio } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Radio } from "lucide-react";
 import LeaguesNav from "../Navbar/LeaguesNav";
+import { CompetitionMissing } from "../Tournaments/TournOverview";
+import { WatchLinks } from "../Tournaments/TournWatch";
+import { useCompetitionPage } from "@/lib/competitionPage";
 import "./league-detail.css";
-
-const streamLinks = [{name:"YouTube",url:"https://www.youtube.com/@shortcircuitarena",status:"Official league broadcast"},{name:"Twitch",url:"https://www.twitch.tv/shortcircuitarena",status:"Official league stream"}];
-const clips = [{title:"Matchweek 3 highlights",image:"/assets/ancient_greek.png",views:"1.8K"},{title:"Shogun Clan vs F4 Sides",image:"/assets/path_of_legends.png",views:"960",teams:[{name:"Shogun Clan",slug:"shogun-clan"},{name:"F4 Sides",slug:"f4-sides"}]},{title:"Best plays of the week",image:"/assets/PUBG_Global_Championship.png",views:"740"}];
+import "../Tournaments/tournament-secondary.css";
 
 export default function LeagueWatch() {
-  const [copied,setCopied] = useState("");
-  const copyStream = async (stream) => { try { await navigator.clipboard.writeText(stream.url); setCopied(stream.name); window.setTimeout(() => setCopied(""),1800); } catch { setCopied(""); } };
-  return <main className="league-detail"><div className="league-detail-container"><LeaguesNav/><header className="league-header"><div><p className="eyebrow">Broadcast centre</p><h1>Watch the league</h1><p>Follow official Path of Legends matchweek broadcasts, replays, and season highlights.</p></div><span className="league-badge"><Radio/>Next broadcast Saturday</span></header><section className="league-featured-stream"><div><span className="league-live-label">Next broadcast</span><h2>Path of Legends · Matchweek 4</h2><p>Four fixtures, live analysis, and the complete matchweek recap from the SCA broadcast team.</p><time>Saturday · 18:00 WAT</time></div><button type="button" aria-label="Play upcoming broadcast"><Play/></button></section><section className="league-section league-stream-section"><div className="league-section-heading"><div><p className="eyebrow">Official channels</p><h2>Participant streams</h2><p>Copy an approved stream link and share the league broadcast with your community.</p></div></div><div className="league-stream-links">{streamLinks.map(stream => <article key={stream.name}><div><strong>{stream.name}</strong><span>{stream.status}</span><a href={stream.url} target="_blank" rel="noreferrer">{stream.url}</a></div><button type="button" onClick={() => copyStream(stream)} aria-label={`Copy ${stream.name} stream link`}>{copied===stream.name?<Check/>:<Copy/>}<span>{copied===stream.name?"Copied":"Copy link"}</span></button></article>)}</div><p className="sr-only" aria-live="polite">{copied?`${copied} stream link copied`:""}</p></section><section className="league-section"><div className="league-section-heading"><div><p className="eyebrow">On demand</p><h2>League highlights</h2></div></div><div className="league-clip-grid">{clips.map(({title,image,views,teams}) => <article key={title}><div><img src={image} alt=""/><span><Play/></span></div><section><h3>{title}</h3>{teams&&<div className="clip-team-links">{teams.map(team=><Link key={team.slug} to={`/teams/${team.slug}`}>{team.name}</Link>)}</div>}<p><Eye/>{views} views</p><a href="#watch">Watch replay <ArrowUpRight/></a></section></article>)}</div></section></div></main>;
+  const { competition: league, loading, missing } = useCompetitionPage("league");
+  if (loading || missing) return <CompetitionMissing kind="league" loading={loading}/>;
+  const live = league.watchLinks?.youtube || league.watchLinks?.twitch;
+  return <main className="league-detail"><div className="league-detail-container"><LeaguesNav/><header className="league-header"><div><p className="eyebrow">Live &amp; replay</p><h1>Watch the league</h1><p>Follow the broadcast and catch up on {league.name}.</p></div><span className="league-badge"><Radio/>{live ? "Streams listed" : "Streams offline"}</span></header><WatchLinks competition={league}/></div></main>;
 }
