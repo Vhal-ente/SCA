@@ -67,11 +67,13 @@ import LoadoutDetailPage from "./pages/LoadoutDetailPage";
 import DashboardLoadouts from "./pages/DashboardLoadouts";
 import LoadoutEditorPage from "./pages/LoadoutEditorPage";
 import AdminLoadoutsPage from "./pages/AdminLoadoutsPage";
+import SeoMetadata from "./components/SeoMetadata";
 
 export default function App() {
   return (
        <BrowserRouter>
     <AuthProvider>
+        <SeoMetadata />
         <ScrollManager />
         <Routes>
           {/* Temporary launch page. Restore <LandingPage /> here after launch. */}
